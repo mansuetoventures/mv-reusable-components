@@ -1,0 +1,70 @@
+.headerCopy {
+    margin: 0 auto;
+    text-align: center;
+
+    &.sponsorLogo div div {
+        margin: 20px auto;
+    }
+}
+
+.fullWidthLanderGraphic {
+	width: 100vw;
+	// background-color: #6694D7;
+	margin: 0 8px 40px;
+
+	img {
+		width: 100%;
+		height: auto;
+		//max-width: 1260px;
+	}
+}
+
+.portraitLeft {
+	margin-bottom: 20px;
+}
+.portraitImage {
+	max-height: 734px;
+}
+
+.articleHeader {
+	margin-bottom: 20px;
+	margin-top: 40px;
+
+	&.skinnyPano {
+		margin-top: 0;
+
+		.articleShareBar {
+			margin-top: 40px;
+    }
+    img{
+      @media (max-width:1500px){
+        height:250px;
+        width:1500px;
+      }
+      @media (min-width:1500px){
+        width:100%;
+      }
+    }
+	}
+	&.lead{
+		.articleShareBar{
+			margin: 0 auto 20px auto;
+		}
+	}
+}
+
+
+.articleShareBar {
+	text-align: center;
+	margin: 0 auto;
+	> div {
+		font-size: 20px;
+		width: auto;
+		margin-left: initial;
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+}

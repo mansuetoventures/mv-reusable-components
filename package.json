@@ -1,0 +1,40 @@
+{
+  "name": "react-frames",
+  "version": "0.0.30",
+  "description": "Put a description here",
+  "main": "build/index.js",
+  "peerDependencies": {
+    "react": "^16.3.2"
+  },
+  "dependencies": {
+    "react": "^16.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack",
+    "devDemo": "webpack --config demo.config.js --watch"
+  },
+  "author": {
+    "name": "Your name",
+    "email": "your email"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "css-loader": "^3.0.0",
+    "inline-css-webpack-loader": "^1.0.4",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "react-dom": "^16.8.6",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
