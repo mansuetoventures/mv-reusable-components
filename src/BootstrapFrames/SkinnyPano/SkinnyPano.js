@@ -15,7 +15,7 @@ const SkinnyPano = props => (
 
   <Container>
     <Row> {/*Brow and Title*/}
-      <Col sm={{span:10}} styles={parentStyles.headerCopy}>
+      <Col sm={{span:10}} style={parentStyles.headerCopy}>
         {props.Row1}
       </Col>
     </Row>
