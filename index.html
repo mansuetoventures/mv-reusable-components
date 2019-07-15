@@ -1,6 +1,11 @@
 <html>
     <body>
         <div id="root"></div>
-        <script src='./build/index.js'></script>
+        <script>
+            var s = document.createElement('script');
+            s.src='./build/demo/'+window.location.search.split('=')[1]+'.js';
+            console.log(s.src);
+            document.body.appendChild(s)
+        </script>
     </body>
 </html>

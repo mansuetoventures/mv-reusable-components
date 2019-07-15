@@ -1,0 +1,99 @@
+:root {
+    //--containerHeight: 48px;
+    --buttonHeight: 36px;
+    --smallTextSize: 5px;
+    --switchHeight: 13px;
+  
+  }
+  
+  
+  .main{
+    //height:var(--containerHeight);
+    .button{
+      height:var(--buttonHeight);
+      button{
+        width:100%;
+        /*
+        &:focus{
+          //outline:1px dotted !important; //overrides -webkit-focus-ring-color auto 5px;
+        }*/
+      }
+    }
+    .menu{
+      height:calc(var(--smallTextSize) + var(--switchHeight));
+  
+      font-size:var(--smallTextSize);
+      .label{
+        height:var(--smallTextSize);
+        line-height:var(--smallTextSize);
+      }
+  
+    }
+  }
+  
+  .main{
+    cursor:pointer;
+    width:80px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+  }
+  
+  .menu{
+    display:flex;
+    justify-content: space-around;
+    align-items:center;
+  }
+  
+  
+  
+  .showColors{
+    .button{
+      background:hsl(0,50%,80%);
+    }
+    .menu{
+      background:hsl(50,50%,80%);
+    }
+    .switchAndLabel{
+      .label{
+        background:hsl(100,50%,80%);
+      }
+      .switch{
+        background:hsl(200,50%,80%);
+  
+      }
+    }
+  }
+  
+  
+  
+  
+  .switchAndLabel{
+    flex:1;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: column;
+  
+    .switch{
+      height:13px;
+      >span{
+        transform:scale(0.5);
+        left:-8px;
+        top:-5px;
+      }
+    }
+  }
+  
+  .switch,.label{
+    display:inline;
+  }
+  
+  .switch{
+    overflow:hidden;
+    width:18px;
+    height:10px;
+    position:relative;
+  
+  }
+  
+  

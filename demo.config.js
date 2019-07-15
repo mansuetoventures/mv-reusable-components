@@ -3,10 +3,14 @@ var path = require('path');
 module.exports = {
     mode: 'production',
 
-    entry:'./src/index.js',
+    entry:{
+      'something':'./src/index.js',
+      'AsyncActionOnInterval':'./src/AsyncActionOnInterval/demo.js',
+      'SkinnyPano':'./src/BootstrapFrames/SkinnyPano/demo.js'
+    },
     output:{
         path: path.resolve(__dirname, 'build'),
-        filename: 'index.js'
+        filename: 'demo/[name].js'
     },
     module: {
         rules: [
