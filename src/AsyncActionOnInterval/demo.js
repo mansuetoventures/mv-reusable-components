@@ -5,22 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AsyncActionOnInterval from './AsyncActionOnInterval.js';
 import Switch from '@material-ui/core/Switch';
 
-const SwitchRemoveWeirdStyles = withStyles({
-    root:{
-      display:'inline-block',
-      width:'34px'
-    },
-    switchBase:{
-      width:'20px',
-      height:'20px'
-    }
-  
-  })(class SwitchRemoveWeirdStyles extends React.Component{
-    render(){
-      return <Switch {...this.props}/>;
-    }
-  });
-  
+
 
 class AsyncActionOnIntervalDemo extends React.Component{
     constructor(){
@@ -84,18 +69,23 @@ class AsyncActionOnIntervalDemo extends React.Component{
         this.setState({passOrFail:c});
       }
     render(){
-        return <React.Fragment><p>Pass or fail</p>
-        <SwitchRemoveWeirdStyles
+        return <React.Fragment>
+        <div style={{
+          display:'flex'
+        }}>
+        <p>Pass or fail</p>
+        <Switch
           checked={this.state.passOrFail}
           onChange={this.handleSwitch.bind(this)}
           disabled={false}
         />
         <p>Turn on bottom toggle</p>
-        <SwitchRemoveWeirdStyles
+        <Switch
           checked={this.state.showBottom}
           onChange={this.onTChange.bind(this)}
           disabled={false}
         />
+        </div> 
   
         <AsyncActionOnInterval
           disabled={false}
