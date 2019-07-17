@@ -5,6 +5,20 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
 
+function toLowerCase(str){
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
+//Ghetto css vars
+Object.keys(css.root).forEach(varName=>{
+  Object.keys(css).forEach(className=>{
+    Object.keys(css[className]).forEach(cssPropName=>{
+      console.log('var\\(--'+toLowerCase(varName)+'\\)');
+      css[className][cssPropName] = css[className][cssPropName].replace(new RegExp('var\\(--'+toLowerCase(varName)+'\\)','g'),css.root[varName]);
+    })
+  })
+});
+
 console.log(css);
 
 const SwitchRemoveWeirdStyles = withStyles({
@@ -89,35 +103,6 @@ Timer.propTypes = {
 };
 
 
-const StyledSwitch = withStyles({
-
-  root:{
-
-    //scale and move
-    /*
-    transform:'scale(0.5)',
-    left:'-8px',
-    top:'-7px'*/
-  }
-  /*
-  root:{
-    transform:'scale(0,5)',
-    width:'17px',
-    height:'10px'
-  },
-  switchBase:{
-    width:'10px',
-    height:'10px'
-  },
-  bar:{
-    width:'17px',
-    height:'7px'
-  },
-  icon:{
-    width:'10px',
-    height:'10px'
-  }*/
-})(SwitchRemoveWeirdStyles);
 
 
 
@@ -183,13 +168,13 @@ class AsyncActionOnInterval extends React.Component{
       ...css.main,
       ...css.showColors
     }}>
-      <div style={css.button} onClick={this.handleClick.bind(this)}>
+      <div style={css.main__button} onClick={this.handleClick.bind(this)}>
         <Button disabled={this.props.disabled}>
           {this.state.message}
         </Button>
       </div>
 
-      <div style={css.menu}>
+      <div style={css.main__menu}>
         {this.props.showBottom ?
           <div style={css.switchAndLabel}>
             <div style={css.label}>
@@ -197,7 +182,7 @@ class AsyncActionOnInterval extends React.Component{
             </div>
             <div style={css.switch}>
 
-              <StyledSwitch
+              <Switch
                 checked={this.state.switchChecked}
                 onChange={this.handleSwitch.bind(this)}
                 disabled={this.props.disabled}
