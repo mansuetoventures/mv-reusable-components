@@ -6,7 +6,8 @@ module.exports = {
     entry:{
       'something':'./src/index.js',
       'AsyncActionOnInterval':'./src/AsyncActionOnInterval/demo.js',
-      'SkinnyPano':'./src/BootstrapFrames/SkinnyPano/demo.js'
+      'SkinnyPano':'./src/BootstrapFrames/SkinnyPano/demo.js',
+      'FeatureImage':'./src/BootstrapFrames/FeatureImage/demo.js'
     },
     output:{
         path: path.resolve(__dirname, 'build'),
