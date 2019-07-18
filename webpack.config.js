@@ -12,6 +12,8 @@ module.exports = {
     'BootstrapFrames/Portrait/Portrait':'./src/BootstrapFrames/Portrait/Portrait.js',
     'BootstrapFrames/SkinnyPano/SkinnyPano':'./src/BootstrapFrames/SkinnyPano/SkinnyPano.js',
     'Frames/Frames':'./src/Frames/Frames.js',
+    'InfiniteScroll/InfiniteScroll':'./src/InfiniteScroll/InfiniteScroll.js',
+
   },
   output: {
     path: path.resolve(__dirname, 'build'),
