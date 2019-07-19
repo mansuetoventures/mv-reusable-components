@@ -8,7 +8,8 @@ module.exports = {
       'AsyncActionOnInterval':'./src/AsyncActionOnInterval/demo.js',
       'SkinnyPano':'./src/BootstrapFrames/SkinnyPano/demo.js',
       'InfiniteScroll':'./src/InfiniteScroll/demo.js',
-      'Article':'./src/Article/demo.js'
+      'Article':'./src/Article/demo.js',
+      'DialogBasedOnDialogMessage':'./src/DialogBasedOnDialogMessage/demo.js'
 
 
     },
