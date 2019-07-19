@@ -11,13 +11,11 @@ class InfiniteScroll extends Component {
   }
 
   handleArticleEnter(index, articleBundle, previousArticle){
-      console.log("handleArticleEnter (from top)",index)
     //This function is called when an item enters the view
     this.props.onArticleEnter && this.props.onArticleEnter.bind(this, index, articleBundle, previousArticle);
   }
 
   handleArticleLeave(itemIndex, item, previousItem, waypoint){
-    console.log("handleArticleLeave (from top)",itemIndex)
 
     //Calculate the current article based omn <Waypoint> above the article of index=itemIndex leaving the viewport
     let newIndex;
@@ -38,7 +36,7 @@ class InfiniteScroll extends Component {
 
     this.eachRef = [];
     return (
-      <div className="articlesHolder" ref={e => this.articlesHolder = e}>
+      <div>
         {this.props.items.map((item, index) => {
           let previousItem = index > 0 && this.props.items[(index - 1)];
           let componentEvents = {...this.props.componentEvents};

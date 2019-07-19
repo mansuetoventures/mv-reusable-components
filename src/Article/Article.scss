@@ -1,0 +1,12 @@
+
+
+//To Do: Seems last ad should be a certain background color?
+.hideContent{
+    &:last-child {
+        :global{
+            .adElement {
+                background-color: #FFF;
+            }
+        }
+    }
+}
