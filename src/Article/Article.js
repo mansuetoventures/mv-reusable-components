@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './Article.scss';
 
-function DialogSupport(){
-    return "To do";
-}
+import DialogBasedOnDialogMessage from '../DialogBasedOnDialogMessage/DialogBasedOnDialogMessage.js';
 
 function ArticleHeaderSupport(){
     return "To do";
@@ -45,8 +43,9 @@ function CustomJS(){
 
 
 function Article(){
+    const [dialogMessage, setDialogMessage] = useState(null);
     return <div>
-        <DialogSupport />
+        <DialogBasedOnDialogMessage message={dialogMessage}/>
         <ArticleHeaderSupport />
         <RandomWaypoint />
         <BodyAndOtherBS />
