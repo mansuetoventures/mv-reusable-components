@@ -1,0 +1,26 @@
+.articleShareBar {
+	text-align: center;
+	margin: 0 auto;
+	> div {
+		font-size: 20px;
+		width: auto;
+		margin-left: initial;
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0px;
+		}
+	}
+}
+
+.articleHeader {
+    margin-bottom: 20px;
+    margin-top:40px;
+      overflow: hidden;
+  
+      .headerCopy {
+          margin: 0 auto;
+          text-align: center;
+    }
+    img{max-width:100%;} /*I think this applies to feature image*/
+  }
