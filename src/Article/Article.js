@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import PropTypes from 'prop-types';
 import styles from './Article.scss';
 
-function DialogSupport(){
-    return "To do";
-}
+import DialogBasedOnDialogMessage from '../DialogBasedOnDialogMessage/DialogBasedOnDialogMessage.js';
+import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeaderFrames/MultipleArticleHeaderFrames.js';
 
 function ArticleHeaderSupport(){
     return "To do";
@@ -45,9 +44,24 @@ function CustomJS(){
 
 
 function Article(){
+    const [dialogMessage, setDialogMessage] = useState(null);
     return <div>
-        <DialogSupport />
-        <ArticleHeaderSupport />
+        <DialogBasedOnDialogMessage message={dialogMessage}/>
+        <MultipleArticleHeaderFrames 
+            topRegion={<div>Here is some top text</div>}
+
+            headerType={'full'}
+            shareButtons={<div>Share buttons</div>}
+            brow={<div>Brow</div>}
+            h1={<div>h1</div>}
+            h2={<div>h2</div>}
+            featureItem={<div>Feature Item</div>}
+            authors={<div>Authors</div>}
+            grid={<div>grid</div>}
+            sponsorLogo={<div>sponsor logo</div>}
+    
+            bottomRegion={<div>Here is some bottom text.</div>}
+        />
         <RandomWaypoint />
         <BodyAndOtherBS />
         <Sidebar />
