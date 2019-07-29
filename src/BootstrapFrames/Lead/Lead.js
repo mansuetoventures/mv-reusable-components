@@ -7,6 +7,11 @@ import * as styles from './Lead.scss';
 
 
 const Lead = props => {
+
+  const row1InnerWrapperStyles = styles.row1InnerWrapper;
+
+  if (props.Row1MiddleMaxWidth) row1InnerWrapperStyles.maxWidth = `${props.Row1MiddleMaxWidth}px`;
+
   return <React.Fragment>
       <Row>
         <div style={parentStyles.headerCopy}>
@@ -16,7 +21,9 @@ const Lead = props => {
             ...parentStyles.fullWidthLanderGraphic,
             ...styles.row1MiddleWrapper
           }}>
-            {props.Row1Middle} {/*Feauture Item*/}
+            <div style={row1InnerWrapperStyles}>
+              {props.Row1Middle} {/*Feauture Item*/}
+            </div>
           </div>
 
 
@@ -60,6 +67,7 @@ const Lead = props => {
 Lead.propTypes = {
   Row1Top:PropTypes.node.isRequired,
   Row1Middle:PropTypes.node.isRequired,
+  Row1MiddleMaxWidth:PropTypes.number,
   Row1Bottom:PropTypes.node.isRequired,
 
   Row2:PropTypes.node,
