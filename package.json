@@ -1,6 +1,6 @@
 {
-  "name": "react-frames",
-  "version": "0.0.30",
+  "name": "mv-reusable-components",
+  "version": "0.0.0",
   "description": "Put a description here",
   "main": "build/index.js",
   "peerDependencies": {
