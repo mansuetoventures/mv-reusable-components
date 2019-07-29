@@ -7,6 +7,7 @@ module.exports = {
       'something':'./src/index.js',
       'AsyncActionOnInterval':'./src/AsyncActionOnInterval/demo.js',
       'SkinnyPano':'./src/BootstrapFrames/SkinnyPano/demo.js',
+      'Lead':'./src/BootstrapFrames/Lead/demo.js',
       'InfiniteScroll':'./src/InfiniteScroll/demo.js',
       'Article':'./src/Article/demo.js',
       'DialogBasedOnDialogMessage':'./src/DialogBasedOnDialogMessage/demo.js',

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {Container, Row, Col} from '../lib/Bootstrap.js';
 import * as parentStyles from '../BootstrapFrames.scss';
+import * as styles from './Lead.scss';
 
 
 const Lead = props => {
@@ -11,7 +12,10 @@ const Lead = props => {
         <div style={parentStyles.headerCopy}>
           {props.Row1Top} {/*Brow*/}
 
-          <div style={parentStyles.fullWidthLanderGraphic}>
+          <div style={{
+            ...parentStyles.fullWidthLanderGraphic,
+            ...styles.row1MiddleWrapper
+          }}>
             {props.Row1Middle} {/*Feauture Item*/}
           </div>
 
