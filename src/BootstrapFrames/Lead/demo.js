@@ -10,7 +10,7 @@ function App(){
     Row1Middle={<div style={{
     }}>This is row 1 middle</div>}
     //Row1MiddleMaxWidth={970}
-
+    
 
     Row1Bottom={<div>This is row 1 bottom</div>}
 

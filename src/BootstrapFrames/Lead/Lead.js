@@ -11,7 +11,7 @@ const Lead = props => {
   const row1InnerWrapperStyles = styles.row1InnerWrapper;
 
   if (props.Row1MiddleMaxWidth) row1InnerWrapperStyles.maxWidth = `${props.Row1MiddleMaxWidth}px`;
-
+  
   return <React.Fragment>
       <Row>
         <div style={parentStyles.headerCopy}>
