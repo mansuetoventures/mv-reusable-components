@@ -13,7 +13,9 @@ module.exports = {
     'BootstrapFrames/SkinnyPano/SkinnyPano':'./src/BootstrapFrames/SkinnyPano/SkinnyPano.js',
     'Frames/Frames':'./src/Frames/Frames.js',
     'InfiniteScroll/InfiniteScroll':'./src/InfiniteScroll/InfiniteScroll.js',
-    'Article/Article':'./src/Article/Article.js'
+    'Article/Article':'./src/Article/Article.js',
+    'BootstrapFrames/FeatureItemArea/FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/FeatureItemArea.js',
+
 
   },
   output: {
