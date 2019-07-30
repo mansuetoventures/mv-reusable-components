@@ -49,12 +49,7 @@ const Full = props=>{
       {props.UnderRows}
       </Container>
 
-      {props.FeatureArea &&  //You need an "UnderUnder container" for the image caption and credit now.
-        <FeatureItemArea background={props.featureAreaBackground} width={props.featureItemWidth} captionArea={props.captionArea}>
-          {props.FeatureArea}
-          {props.underFeatureArea}
-        </FeatureItemArea>
-      }
+      {props.UnderContainer}
 
     </React.Fragment>
 };
@@ -71,10 +66,7 @@ Full.propTypes = {
   Row4:PropTypes.node.isRequired,
   Row5:PropTypes.node,
   UnderRows:PropTypes.node.isRequired,
-  FeatureArea:PropTypes.node,
-  underFeatureArea:PropTypes.node,
-  featureAreaBackground:PropTypes.string,
-  featureItemWidth:PropTypes.string
+  UnderContainer:PropTypes.node
 }
 
 export default Full;
