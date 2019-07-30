@@ -7,10 +7,6 @@ import * as styles from './Lead.scss';
 
 
 const Lead = props => {
-
-  const row1InnerWrapperStyles = styles.row1InnerWrapper;
-
-  if (props.Row1MiddleMaxWidth) row1InnerWrapperStyles.maxWidth = `${props.Row1MiddleMaxWidth}px`;
   
   return <React.Fragment>
       <Row>
@@ -21,7 +17,7 @@ const Lead = props => {
             ...parentStyles.fullWidthLanderGraphic,
             ...styles.row1MiddleWrapper
           }}>
-            <div style={row1InnerWrapperStyles}>
+            <div>
               {props.Row1Middle} {/*Feauture Item*/}
             </div>
           </div>

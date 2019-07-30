@@ -14,6 +14,9 @@ import {Container, Row, Col} from '../lib/Bootstrap.js';
 
 
 const Full = props=>{
+
+ 
+
   return <React.Fragment>
     <Container>
 
@@ -46,12 +49,20 @@ const Full = props=>{
       </Container>
 
       {props.UnderContainer && (
-        <div>{props.UnderContainer}</div>
+        <div className='background' style={{
+          background:props.underContainerBackground
+        }}>
+          <div className='width' style={{width:props.underContainerWidth,margin:'0 auto'}}>{props.UnderContainer}</div>
+        </div>
       )}
 
 
     </React.Fragment>
 };
+
+Full.defaultProps = {
+  underContainerBackground:'#f6f6f6'
+}
 
 
 Full.propTypes = {
@@ -61,7 +72,9 @@ Full.propTypes = {
   Row4:PropTypes.node.isRequired,
   Row5:PropTypes.node,
   UnderRows:PropTypes.node.isRequired,
-  UnderContainer:PropTypes.node
+  UnderContainer:PropTypes.node,
+  underContainerBackground:PropTypes.string,
+  underContainerWidth:PropTypes.string
 }
 
 export default Full;
