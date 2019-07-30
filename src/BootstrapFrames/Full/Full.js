@@ -12,6 +12,7 @@ import * as parentStyles from '../BootstrapFrames.scss';
 import * as styles from './Full.module.scss';
 import {Container, Row, Col} from '../lib/Bootstrap.js';
 
+import FeatureItemArea from '../FeatureItemArea/FeatureItemArea.js';
 
 const Full = props=>{
 
@@ -48,16 +49,12 @@ const Full = props=>{
       {props.UnderRows}
       </Container>
 
-      {props.FeatureArea && ( //You need an "UnderUnder container" for the image caption and credit now.
-        <div className='background' style={{
-          background:props.featureAreaBackground
-        }}>
-          <div className='width' style={{width:props.featureItemWidth,margin:'0 auto'}}>{props.FeatureArea}</div>
-        </div>
-      )}
-
-      {props.underFeatureArea}
-
+      {props.FeatureArea &&  //You need an "UnderUnder container" for the image caption and credit now.
+        <FeatureItemArea background={props.featureAreaBackground} width={props.featureItemWidth} captionArea={props.captionArea}>
+          {props.FeatureArea}
+          {props.underFeatureArea}
+        </FeatureItemArea>
+      }
 
     </React.Fragment>
 };

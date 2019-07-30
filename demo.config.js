@@ -12,8 +12,8 @@ module.exports = {
       'InfiniteScroll':'./src/InfiniteScroll/demo.js',
       'Article':'./src/Article/demo.js',
       'DialogBasedOnDialogMessage':'./src/DialogBasedOnDialogMessage/demo.js',
-      'MultipleArticleHeaderFrames':'./src/BootstrapFrames/MultipleArticleHeaderFrames/demo.js'
-
+      'MultipleArticleHeaderFrames':'./src/BootstrapFrames/MultipleArticleHeaderFrames/demo.js',
+      'FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/demo.js'
     },
     output:{
         path: path.resolve(__dirname, 'build'),
