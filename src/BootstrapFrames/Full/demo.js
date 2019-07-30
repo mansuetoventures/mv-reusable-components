@@ -11,8 +11,9 @@ function App(){
     Row4={<div>This is row 4</div>}
     Row5={<div>This is row 5</div>}
     UnderRows={<div>This is Under Rows</div>}
-    UnderContainer={<div style={{background:'black',color:'white'}}>This is Under Container</div>}
-    underContainerWidth='400px'
+    FeatureArea={<div style={{background:'black',color:'white'}}>This is the Feature Area</div>}
+    featureItemWidth='400px'
+    underFeatureArea={<div>Under feature area</div>}
     />
 
 }

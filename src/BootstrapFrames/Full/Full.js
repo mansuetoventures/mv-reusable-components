@@ -48,20 +48,22 @@ const Full = props=>{
       {props.UnderRows}
       </Container>
 
-      {props.UnderContainer && (
+      {props.FeatureArea && ( //You need an "UnderUnder container" for the image caption and credit now.
         <div className='background' style={{
-          background:props.underContainerBackground
+          background:props.featureAreaBackground
         }}>
-          <div className='width' style={{width:props.underContainerWidth,margin:'0 auto'}}>{props.UnderContainer}</div>
+          <div className='width' style={{width:props.featureItemWidth,margin:'0 auto'}}>{props.FeatureArea}</div>
         </div>
       )}
+
+      {props.underFeatureArea}
 
 
     </React.Fragment>
 };
 
 Full.defaultProps = {
-  underContainerBackground:'#f6f6f6'
+  featureAreaBackground:'#f6f6f6'
 }
 
 
@@ -72,9 +74,10 @@ Full.propTypes = {
   Row4:PropTypes.node.isRequired,
   Row5:PropTypes.node,
   UnderRows:PropTypes.node.isRequired,
-  UnderContainer:PropTypes.node,
-  underContainerBackground:PropTypes.string,
-  underContainerWidth:PropTypes.string
+  FeatureArea:PropTypes.node,
+  underFeatureArea:PropTypes.node,
+  featureAreaBackground:PropTypes.string,
+  featureItemWidth:PropTypes.string
 }
 
 export default Full;
