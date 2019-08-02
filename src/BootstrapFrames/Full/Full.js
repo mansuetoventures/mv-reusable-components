@@ -7,47 +7,21 @@ import React, {Component} from 'react';
 //import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 
-//temp
-import * as parentStyles from '../BootstrapFrames.scss';
-import * as styles from './Full.module.scss';
-import {Container, Row, Col} from '../lib/Bootstrap.js';
 
-import FeatureItemArea from '../FeatureItemArea/FeatureItemArea.js';
+
+import HeaderInfoSection from '../HeaderInfoSection/HeaderInfoSection.js';
 
 const Full = props=>{
 
  
 
   return <React.Fragment>
-    <Container>
-
-      <Row> {/* Eyebrow And Title*/}
-        <Col sm={{span:10}} style={styles.row1}>{props.Row1}</Col>
-      </Row>
-
-      {props.Row2 && <Row> {/*Product Comparison Grid*/}
-        {props.Row2}
-      </Row>}
-
-      <Row> {/*Deck*/}
-        <Col style={parentStyles.headerCopy} sm={{span:10,offset:1}} md={{span:8, offset:2}}>
-          {props.Row3}
-        </Col>
-      </Row>
-
-      <Row> {/*Share Buttons*/}
-        {props.Row4}
-      </Row>
-
-        {props.Row5  &&
-         (
-        <Row>
-          {props.Row5}
-        </Row>
-      )}
-
-      {props.UnderRows}
-      </Container>
+      <HeaderInfoSection 
+        Row1={props.Row1}
+        Row2={props.Row2}
+        Row3={props.Row3}
+        Row4={props.Row4}
+      />
 
       {props.UnderContainer}
 

@@ -5,14 +5,16 @@ import {Container, Row, Col} from '../lib/Bootstrap.js';
 import * as parentStyles from '../BootstrapFrames.scss';
 import * as styles from './Lead.scss';
 
+import HeaderInfoSection from '../HeaderInfoSection/HeaderInfoSection.js';
+
 
 const Lead = props => {
   
   return <React.Fragment>
       <Row>
         <div style={parentStyles.headerCopy}>
-          {props.Row1Top} {/*Brow*/}
 
+          {/*Is it necessary for this to be different than Full/Pano? Also it's a Row not inside a Container...*/}
           <div style={{
             ...parentStyles.fullWidthLanderGraphic,
             ...styles.row1MiddleWrapper
@@ -23,38 +25,15 @@ const Lead = props => {
           </div>
 
 
-            {props.Row1Bottom} {/*Title*/}
         </div>
       </Row>
 
-      {props.Row2 &&
-
-        <Row>
-          <Col sm={{span:12}}>
-          {props.Row2}
-          </Col>
-        </Row>
-      }
-
-      {props.Row3 && (
-        <Row> {/*Share Buttons*/}
-          <div
-            style={parentStyles.articleShareBar}
-          >
-            {props.Row3}
-
-          </div>
-        </Row>
-      )}
-
-      <Row>
-        <Col sm={{span:10,offset:1}} md={{span:8, offset:2}} style={parentStyles.headerCopy} className='header-copy'>
-          {props.Row4} {/*Deck*/}
-        </Col>
-      </Row>
-
-{props.UnderRows} {/*Author, SponsorLogo*/}
-
+      <HeaderInfoSection 
+        Row1={props.Row1}
+        Row2={props.Row2}
+        Row3={props.Row3}
+        Row4={props.Row4}
+      />
 
   </React.Fragment>
 
