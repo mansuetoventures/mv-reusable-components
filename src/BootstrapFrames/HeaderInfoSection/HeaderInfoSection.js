@@ -34,12 +34,13 @@ const HeaderInfoSection = props=>{
       </Row>
 
         {/*Commenting out row5 because I don't see where it is used or why it was originally here*/}
-        {/*props.Row5  &&
+        {/*Update: It was the byline*/}
+        {props.Row5  &&
          (
         <Row>
           {props.Row5}
         </Row>
-         )*/}
+         )}
       </Container>
 }
 
