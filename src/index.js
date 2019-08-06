@@ -10,6 +10,8 @@ function App(){
         Row2={<div>This is row 2</div>}
         Row3={<div>This is row 3</div>}
         Row4={<div>This is row 4</div>}
+        Row4={<div>This is row 5</div>}
+
         UnderRows={<div>Under Rows</div>}
     />
 

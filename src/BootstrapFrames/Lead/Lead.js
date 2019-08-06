@@ -33,6 +33,7 @@ const Lead = props => {
         Row2={props.Row2}
         Row3={props.Row3}
         Row4={props.Row4}
+        Row5={props.Row5}
       />
 
   </React.Fragment>
