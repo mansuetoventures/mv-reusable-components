@@ -37,7 +37,10 @@ const HeaderInfoSection = props=>{
         {/*Update: It was the byline*/}
         {props.Row5  &&
          (
-        <Row>
+        <Row style={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
           {props.Row5}
         </Row>
          )}
@@ -48,7 +51,8 @@ HeaderInfoSection.propTypes = {
     Row1:PropTypes.node.isRequired,
     Row2:PropTypes.node,
     Row3:PropTypes.node.isRequired,
-    Row4:PropTypes.node.isRequired
+    Row4:PropTypes.node.isRequired,
+    Row5:PropTypes.node.isRequired
   }
 
   
