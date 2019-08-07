@@ -43,14 +43,14 @@ function CustomJS(){
 
 
 
-function Article(){
+function Article(props){
     const [dialogMessage, setDialogMessage] = useState(null);
     return <div>
         <DialogBasedOnDialogMessage message={dialogMessage}/>
         <MultipleArticleHeaderFrames 
             topRegion={<div>Here is some top text</div>}
 
-            headerType={'full'}
+            headerType={props.headerType}
             shareButtons={<div>Share buttons</div>}
             brow={<div>Brow</div>}
             h1={<div>h1</div>}

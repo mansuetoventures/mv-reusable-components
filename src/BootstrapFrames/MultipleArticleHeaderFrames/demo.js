@@ -3,6 +3,7 @@ import React, { Component, useState } from 'react';
 
 import MultipleArticleHeaderFrames from './MultipleArticleHeaderFrames.js';
 
+import ArticleFrameTypeSelect from './select.js';
 
 
 function App(){
@@ -23,13 +24,11 @@ function App(){
         bottomRegion={<div>Here is some bottom text.</div>}
     />
 
-    <select id="lang" onChange={(e)=>{
-        setHeaderType(e.target.value)
-    }} value={headerType}>
-    <option value="lead">Lead</option>
-                  <option value="portrait">Portrait</option>
-                  <option value="full">Full</option>
-               </select>
+    <ArticleFrameTypeSelect onSelect={(val)=>{
+        setHeaderType(val)
+    }} value={headerType}/>
+
+
     </div>
 
 }
