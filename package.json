@@ -16,6 +16,7 @@
     "start": "webpack --watch",
     "build": "webpack",
     "buildDemo": "webpack --config demo.config.js",
+    "buildAll": "npm run build && npm run buildDemo",
     "devDemo": "webpack --config demo.config.js --watch"
   },
   "author": {
