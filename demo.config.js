@@ -1,7 +1,8 @@
 var path = require('path');
 
 module.exports = {
-    mode: 'production',
+    //mode: 'production',
+    mode: 'development',
 
     entry:{
       'something':'./src/index.js',

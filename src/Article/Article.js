@@ -5,6 +5,9 @@ import styles from './Article.scss';
 import DialogBasedOnDialogMessage from '../DialogBasedOnDialogMessage/DialogBasedOnDialogMessage.js';
 import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeaderFrames/MultipleArticleHeaderFrames.js';
 
+import ArticleTitle from '../ArticleTitle/ArticleTitle.js';
+import ArticleDeck from '../ArticleDeck/ArticleDeck.js';
+
 function ArticleHeaderSupport(){
     return "To do";
 }
@@ -45,16 +48,20 @@ function CustomJS(){
 
 function Article(props){
     const [dialogMessage, setDialogMessage] = useState(null);
+
+
+
+    
     return <div>
         <DialogBasedOnDialogMessage message={dialogMessage}/>
         <MultipleArticleHeaderFrames 
-            topRegion={<div>Here is some top text</div>}
-
             headerType={props.headerType}
+
+            topRegion={<div>Here is some top text</div>}
             shareButtons={<div>Share buttons</div>}
             brow={<div>Brow</div>}
-            h1={<div>h1</div>}
-            h2={<div>h2</div>}
+            h1={<ArticleTitle>{props.title}</ArticleTitle>}
+            h2={<ArticleDeck>{props.deck}</ArticleDeck>}
             featureItem={<div>Feature Item</div>}
             authors={<div>Authors</div>}
             grid={<div>grid</div>}

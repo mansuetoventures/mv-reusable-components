@@ -53,7 +53,7 @@ SkinnyPano.propTypes = {
   Row2:PropTypes.node,
   Row3:PropTypes.node.isRequired,
   Row4:PropTypes.node,
-  UnderRows:PropTypes.node.isRequired
+  UnderRows:PropTypes.node
 }
 
 export default SkinnyPano;

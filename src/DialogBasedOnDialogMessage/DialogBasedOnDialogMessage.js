@@ -45,21 +45,16 @@ function DialogBasedOnDialogMessage(props){
     const prevMessageState = usePrevious(message);
 
     useEffect(()=>{
-        console.log(prevMessageState,message,typeof prevMessageState,typeof prevMessageState !== undefined && prevMessageState !== null && message == null)
-        console.log(props.message,message)
         if (typeof prevMessageState !== 'undefined' && prevMessageState !== null && message == null) {
             setMessage(null);
-            console.log(1)
 
         }
         else if (props.message !== message){
             if (typeof props.message == 'object') setMessage(props.message.message); //hack
             else setMessage(props.message);
-            console.log(2)
 
         } 
         else {
-            console.log(3)
         }
     });
 

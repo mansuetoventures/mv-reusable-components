@@ -8,6 +8,8 @@ import ArticleFrameTypeSelect from './select.js';
 
 function App(){
     const [headerType,setHeaderType] = useState('lead');
+    const [border,setBorder] = useState(10);
+
     return <div><MultipleArticleHeaderFrames 
         topRegion={<div>Here is some top text</div>}
 
@@ -23,6 +25,8 @@ function App(){
 
         bottomRegion={<div>Here is some bottom text.</div>}
     />
+
+    <div style={{borderTop:`${border}px solid black`}}>This is not part of the header component. It has a top border style of 10px.</div>
 
     <ArticleFrameTypeSelect onSelect={(val)=>{
         setHeaderType(val)

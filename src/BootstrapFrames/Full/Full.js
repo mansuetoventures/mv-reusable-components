@@ -41,7 +41,7 @@ Full.propTypes = {
   Row3:PropTypes.node.isRequired,
   Row4:PropTypes.node.isRequired,
   Row5:PropTypes.node,
-  UnderRows:PropTypes.node.isRequired,
+  UnderRows:PropTypes.node,
   UnderContainer:PropTypes.node
 }
 

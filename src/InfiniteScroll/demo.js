@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom';
 import React, { Component, useState } from 'react';
 
 import InfiniteScroll from './InfiniteScroll.js';
-console.log(InfiniteScroll);
 
 function InfiniteScrollDemo(){
 

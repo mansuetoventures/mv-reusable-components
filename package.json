@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.2.0",
+    "load-script": "^1.0.0",
     "react": "^16.3.2",
     "react-waypoint": "^9.0.2"
   },

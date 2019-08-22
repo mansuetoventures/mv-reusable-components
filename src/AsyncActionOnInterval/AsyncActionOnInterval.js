@@ -13,13 +13,11 @@ function toLowerCase(str){
 Object.keys(css.root).forEach(varName=>{
   Object.keys(css).forEach(className=>{
     Object.keys(css[className]).forEach(cssPropName=>{
-      console.log('var\\(--'+toLowerCase(varName)+'\\)');
       css[className][cssPropName] = css[className][cssPropName].replace(new RegExp('var\\(--'+toLowerCase(varName)+'\\)','g'),css.root[varName]);
     })
   })
 });
 
-console.log(css);
 
 const SwitchRemoveWeirdStyles = withStyles({
     root:{

@@ -24,31 +24,33 @@ const HeaderTypes = [Full,Pano,Portrait,SkinnyPano,Lead]
 const browPlacement = new Map([
   [Full,'Row1'],
   [SkinnyPano,'Row1'],
-  [Portrait, 'Col1'],
-  [Lead,'Row1Top']
+  [Lead,'Row1'],
+  [Portrait, 'Col1']
 ]);
 const h1Placement = new Map([
   [Full,'Row1'],
   [SkinnyPano,'Row1'],
-  [Portrait, 'Col1'],
-  [Lead,'Row1Bottom']
+  [Lead,'Row1'],
+  [Portrait, 'Col1']
 
 ]);
 //const h2Placement = new Map(HeaderTypes.map(Type=>[Type,'Deck']));
 const h2Placement = new Map([
   [Full,'Row3'],
   [SkinnyPano,'Row3'],
-  [Portrait, 'Col1'],
-  [Lead,'Row4']
+  [Lead,'Row3'],
+  [Portrait, 'Col1']
 ])
 //const authorPlacement = new Map(HeaderTypes.map(Type=>[Type,'Author']));
+
 const authorPlacement = new Map([
-  [Full,'UnderRows'],
-  [SkinnyPano,'UnderRows'],
+  [Full,'Row5'],
+  [SkinnyPano,'Row5'],
   [Portrait,'UnderContent'],
-  [Lead,'UnderRows']
+  [Lead,'Row5']
 
 ]);
+
 
 
 //const featureItemPlacement = new Map(HeaderTypes.map(Type=>[Type,'FeatureItem']));
@@ -61,13 +63,15 @@ const featureItemPlacement = new Map([
 ])
 //const sponsorLogoPlacement = new Map(HeaderTypes.map(Type=>[Type,'SponsorLogo']));
 
+
 const sponsorLogoPlacement = new Map([
-  [Full,'UnderRows'],
-  [SkinnyPano,'UnderRows'],
+  [Full,'Row5'],
+  [SkinnyPano,'Row5'],
   [Portrait,'UnderContent'],
-  [Lead,'UnderRows']
+  [Lead,'Row5']
 
 ]);
+
 
 //const productComparisonGridPlacement = new Map(HeaderTypes.map(Type=>[Type,'ProductComparisonGrid']))
 
@@ -88,7 +92,7 @@ const shareButtonPlacement = new Map([
   [Full,'Row4'],
   [SkinnyPano,'Row4'],
   [Portrait,'InnerRow'],
-  [Lead,'Row3']
+  [Lead,'Row4']
 
 ]);
 
@@ -129,10 +133,7 @@ const Section = props => props.children || null;
 
 function ArticleHeader(props){
 
-  useEffect(()=>{
-    console.log("Effect used")
-  })
-  console.log(props)
+
     const {isOpen, setIsOpen} = useState(); //is this needed?
 
     const currentFrame = ({
