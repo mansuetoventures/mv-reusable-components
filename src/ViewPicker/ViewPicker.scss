@@ -1,0 +1,39 @@
+.viewPicker{
+  h1{
+    margin-bottom:25.5px;
+  }
+  ul.views{
+    padding-left:0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    max-width:100%;
+    li{
+      color:hsl(205, 53%, 74%);
+      list-style-type:none;
+      border:1px solid hsl(205, 53%, 74%);
+      padding-left:0;
+      width:125px;
+      height:125px;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      text-align:center;
+      padding:10px;
+
+      line-height:17px;
+      margin-bottom:17px;
+      margin-right:17px;
+
+      &:nth-child(4){
+       margin-right:0;
+      }
+      &:hover{
+        border:1px solid black;
+        color:#444;
+        cursor:pointer;
+      }
+    }
+  }
+
+}

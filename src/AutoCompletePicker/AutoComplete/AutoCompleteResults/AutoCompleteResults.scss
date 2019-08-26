@@ -1,0 +1,19 @@
+ul.results{
+  position:absolute;
+  max-height:200px;
+  overflow-y:scroll;
+  box-shadow:1px 2px 5px 0px #333;
+  background: white;
+  list-style-type: none;
+  padding: 0;
+  border-top:1px solid #B3B3B3;
+  cursor:default;
+  z-index:1;
+  li{
+    padding: 0 10px;
+    text-align:left;
+  }
+  li:hover{
+    background:#f0f0f0;
+  }
+}

@@ -7,6 +7,7 @@ import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeade
 
 import ArticleTitle from '../ArticleTitle/ArticleTitle.js';
 import ArticleDeck from '../ArticleDeck/ArticleDeck.js';
+import ArticleBody from '../ArticleBody/ArticleBody.js';
 
 function ArticleHeaderSupport(){
     return "To do";
@@ -17,7 +18,7 @@ function RandomWaypoint(){
 }
 
 function BodyAndOtherBS(){
-    return "To do";
+    return  <ArticleBody>Article Body component</ArticleBody>;
 }
 
 function Sidebar(){

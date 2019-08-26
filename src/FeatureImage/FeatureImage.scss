@@ -1,0 +1,126 @@
+// FULL image specific
+.full {
+    background-color: #FFFFFF;
+
+    @include media-breakpoint-up(sm) {
+        background-color: #F6F6F6;
+    }
+
+    .photo {
+        position: relative;
+        width: 100vw;
+        margin: 0 auto;
+        margin-top: 34px;
+        max-width: 1500px;
+
+        /*temp*/
+
+        /*max-height:600px;*/
+        /*commented out because master appeared broken in wide view*/
+
+        > img {
+            width: 100vw;
+            margin: 0 auto;
+            /*max-width: 1500px; removed for cropper. Isn't it sufficient that parent element has max width?*/
+            max-width:1500px; /*added back because it broke something (see above)*/
+            min-height: 1px;
+            display: block;
+        }
+    }
+}
+.featureImage{
+  img{width:100%;}
+}
+
+// PANO image specific
+.pano {
+
+    .photo {
+        margin-top: 20px;
+        position: relative;
+
+        @include media-breakpoint-up(sm) {
+            background-color: #F6F6F6;
+            margin-top: 34px;
+        }
+
+        > img {
+            width: 100%;
+            height: auto;
+            min-height: 1px;
+
+            @include media-breakpoint-up(lg) {
+                width: 970px;
+                height: 450px;
+            }
+        }
+
+        .sideButton {
+            right: calc(((100vw - 970px) / 2) + 20px);
+        }
+    }
+}
+
+// SKINNY PANO image specific
+.skinnypano {
+    height: auto;
+
+    .photo {
+        width: 100vw;
+        background-size: cover !important;
+        background-position: center center !important;
+        margin-bottom: 50px;
+        height: 28vw;
+
+        @include media-breakpoint-up(lg) {
+          height: 250px;
+        }
+
+        .sideButton {
+            right: calc(((100vw - 970px) / 2) + 20px);
+        }
+
+        @include media-breakpoint-down(sm) {
+            height: 150px;
+        }
+    }
+}
+
+// PORTRAIT image specific
+.portrait {
+    height: auto;
+
+    .photo {
+        height: auto;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        img {
+            width: 100%;
+            max-width: 554px;
+            height: auto;
+            max-height: 734px;
+        }
+    }
+}
+
+
+.wrapper{
+  position:relative;
+  .centeredBox{
+      cursor:pointer;
+      width:84px;
+      height:84px;
+      background:#ccc;
+      border:5px solid white;
+      position: absolute;
+      z-index: 2;
+
+      top: 50%;  /* position the top  edge of the element at the middle of the parent */
+      left: 50%; /* position the left edge of the element at the middle of the parent */
+      transform: translate(-50%, -50%); /* This is a shorthand of
+                                       translateX(-50%) and translateY(-50%) */
+  }
+}
