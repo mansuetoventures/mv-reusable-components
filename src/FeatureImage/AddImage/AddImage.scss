@@ -1,0 +1,21 @@
+.wrapper{
+    font-family: Lato, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 14px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;  
+    height:100%;
+    justify-content:center;
+    .icon{
+        padding-bottom:5px;
+        svg{font-size:30px;}
+    }
+    .text{
+        //font-size: 13px;
+        //font-family:Heebo, Arial, sans-serif;
+        //line-height: 14px;
+        font: 500 13px/14px Roboto, Arial, sans-serif;
+        
+    }
+}
