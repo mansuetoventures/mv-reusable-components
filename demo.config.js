@@ -15,7 +15,8 @@ module.exports = {
       'DialogBasedOnDialogMessage':'./src/DialogBasedOnDialogMessage/demo.js',
       'MultipleArticleHeaderFrames':'./src/BootstrapFrames/MultipleArticleHeaderFrames/demo.js',
       'FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/demo.js',
-      'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js'
+      'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js',
+      'AsyncSwitch':'./src/AsyncSwitch/demo.js'
     },
     output:{
         path: path.resolve(__dirname, 'build'),
