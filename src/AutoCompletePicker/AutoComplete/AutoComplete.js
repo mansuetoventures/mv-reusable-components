@@ -18,8 +18,11 @@ class AutoComplete extends React.Component{
     };
   }
 
-  componentDidUpdate(prevProps,prevState){
-    if (prevState.searchQuery !== this.state.searchQuery){
+  getFilteredData(){
+    if (this.props.customFilteredDataFunction) {
+      return this.props.customFilteredDataFunction(this.state.searchQuery);
+    }
+    else return new Promise((resolve,reject)=>{
       if (this.state.urlSrc) $.ajax({
         url:`${this.state.urlSrc}/${this.state.searchQuery}`,
         type: 'GET',
@@ -27,13 +30,24 @@ class AutoComplete extends React.Component{
           if (data.error){
             reject(data.error);
           }
-          this.setState({dataArr:data.data});
+          else resolve(data.data)
 
         },
         error: err => {
           // eslint-disable-next-line no-console
-          console.log('Error ',err);
+          reject('Error ',err);
         }
+      }); 
+    });
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    if (prevState.searchQuery !== this.state.searchQuery){
+      this.getFilteredData().then((data)=>{
+        this.setState({isError:false,dataArr:data});
+      }).catch((err)=>{
+        this.setState({isError:true})
+        this.props.onError(err);
       });
     }
   }
@@ -60,8 +74,10 @@ class AutoComplete extends React.Component{
       });
     }
 
-
-    return <div>
+    const style = {};
+    if (this.state.isError) style.outline='3px solid red';
+    style.display='inline-block';
+    return <div style={style}>
       <input placeholder={this.props.children} onChange={this.handleType.bind(this)} onFocus={this.handleFocus.bind(this)} onBlur={this.handleBlur.bind(this)} />
       {!!results.length &&
         <AutoCompleteResults>
@@ -80,14 +96,16 @@ AutoComplete.propTypes = {
   data: PropTypes.oneOfType([PropTypes.string,PropTypes.array]),
   nameField: PropTypes.string,
   onChoose: PropTypes.func,
-  children: PropTypes.array
+  children: PropTypes.string,
+  onError: PropTypes.func.isRequired
 };
 
 AutoComplete.defaultProps = {
   onChoose:(obj)=>{
     // eslint-disable-next-line no-console
     console.log("You have chosen:",obj, "Please pass an onChoose prop to this component.");
-  }
+  },
+  nameField:'name'
 }
 
 export default AutoComplete;

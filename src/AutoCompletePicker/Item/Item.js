@@ -20,7 +20,7 @@ class Item extends Component{
     this.setState({dragging:false})
   }
   render(){
-    return <div className={`${css.row}`} ref={div=>this.wrapperDiv=div}>
+    return <div style={css.row} ref={div=>this.wrapperDiv=div}>
       {this.props.children}
       <FontAwesomeIcon icon={['fas','minus-square']} onClick={this.props.onClickMinus}/>
     </div>;

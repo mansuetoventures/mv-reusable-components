@@ -8,6 +8,8 @@ import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeade
 import ArticleTitle from '../ArticleTitle/ArticleTitle.js';
 import ArticleDeck from '../ArticleDeck/ArticleDeck.js';
 import ArticleBody from '../ArticleBody/ArticleBody.js';
+import AsyncSwitch from '../AsyncSwitch/AsyncSwitch.js';
+import ShareButtons from '../ShareButtons/ShareButtons.js';
 
 function ArticleHeaderSupport(){
     return "To do";
@@ -17,8 +19,8 @@ function RandomWaypoint(){
     return "To do";
 }
 
-function BodyAndOtherBS(){
-    return  <ArticleBody>Article Body component</ArticleBody>;
+function BodyAndOtherBS(props){
+    return props.articleBody;
 }
 
 function Sidebar(){
@@ -49,7 +51,7 @@ function CustomJS(){
 
 function Article(props){
     const [dialogMessage, setDialogMessage] = useState(null);
-
+    const [editMode, setEditMode] = useState(false);
 
 
     
@@ -58,11 +60,11 @@ function Article(props){
         <MultipleArticleHeaderFrames 
             headerType={props.headerType}
 
-            topRegion={<div>Here is some top text</div>}
-            shareButtons={<div>Share buttons</div>}
+            topRegion={<AsyncSwitch label='Edit Mode' onSwitchedOn={()=>setEditMode(true)} onSwitchedOff={()=>setEditMode(false)}/>}
+            shareButtons={<ShareButtons />}
             brow={<div>Brow</div>}
-            h1={<ArticleTitle>{props.title}</ArticleTitle>}
-            h2={<ArticleDeck>{props.deck}</ArticleDeck>}
+            h1={<ArticleTitle editable={editMode}>{props.title}</ArticleTitle>}
+            h2={<ArticleDeck editable={editMode}>{props.deck}</ArticleDeck>}
             featureItem={<div>Feature Item</div>}
             authors={<div>Authors</div>}
             grid={<div>grid</div>}
@@ -71,7 +73,9 @@ function Article(props){
             bottomRegion={<div>Here is some bottom text.</div>}
         />
         <RandomWaypoint />
-        <BodyAndOtherBS />
+        <BodyAndOtherBS 
+            articleBody={<ArticleBody editable={editMode}>Article Body component</ArticleBody>}
+        />
         <Sidebar />
         <PublishButton />
         <WaypointPassedInAsProp />
