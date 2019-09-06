@@ -1,0 +1,79 @@
+.autoCompletePicker{
+  box-shadow:1px 2px 5px 0px #333;
+  width:175px;
+
+  padding:0 10px;
+  box-sizing:content-box;
+  position:relative;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+  .apply{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding:3px;
+    box-sizing:content-box;
+  }
+
+  .row{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+
+  input,.apply{
+    width: 100px;
+    height: 26px;
+    margin: 2px 0;
+    font-size: 14px;
+    line-height: 16px;
+
+  }
+
+  input{
+
+    color: #000;
+    border: solid 1px #B3B3B3;
+    padding: 2px 20px 2px 5px;
+
+    font-family: Lato,Arial,sans-serif;
+    background-color: white;
+    outline: none;
+    box-sizing:content-box
+  }
+
+  .loading{
+    position:relative;
+    left:-1px;
+    animation:spin 1.5s linear infinite;
+  }
+  .plus,.ex{
+    cursor:pointer;
+  }
+
+}
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
+
+
+.closed{
+  //width: 14px; wtf did this say 14
+  width: 20px;
+  padding: 2px 3px;
+  border-radius:15px;
+}
+
+.dragging{
+  background:grey;
+}
+
+.placeholder{
+  background:grey;
+}
