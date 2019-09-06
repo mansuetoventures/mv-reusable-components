@@ -69,8 +69,9 @@ class DraggableList extends Component{
     this.listElements.forEach((child,i)=>{
       child.style.position='absolute';
       child.style.top=`${this.listElements[i].initialY}px`;
-      child.style.width = '155px';
+      //child.style.width = '155px';
       //child.style.width='175px';
+      child.style.width='100%';
 
     });
 
@@ -91,6 +92,8 @@ class DraggableList extends Component{
 
   }
   handleMouseUp(){
+    debugger;
+    //this code is called on deletion and it messes with it.
 
     //if it's above it's actually the first one that changed. If below it's the last.
 
@@ -134,7 +137,7 @@ class DraggableList extends Component{
     this.props.onSwitch(this.draggingIndex,indexToSwitchWith);
   }
   useEffect(){
-
+    console.log('useEffect',this.listElements);
     this.listElements = toArray(this.wrapperDiv.current.children);
     let prevChild;
     this.listElements.forEach((child,i)=>{
@@ -143,7 +146,6 @@ class DraggableList extends Component{
       prevChild = child;
     });
 
-
   }
   componentDidMount(){
     //derives values needed for calculating what happens during drag
@@ -151,24 +153,28 @@ class DraggableList extends Component{
   }
   componentDidUpdate(prevProps,prevState){
 
-
+    
     //Somehow these aren't meshing
     if(prevProps.children!==this.props.children){
       this.setState({children:this.props.children});
     }
 
     //derives values needed for calculating what happens during drag
-    this.useEffect();
+    if(prevProps.children.length!==this.props.children.length){this.useEffect();}
   }
   render(){
 
 
     //if (this.state.placeholderIndex || this.state.placeholderIndex==0) children.splice(this.state.placeholderIndex,1,<PlaceHolderItem key='placeholder'/>);
 
-    const children = this.state.children;
-    return <div onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} ref={this.wrapperDiv}>
+    const children = this.state.children
+    console.log("Draggable List Render",this.state.children && this.state.children.map(e=>e.props.children[0]).join(' '))
+    return <div style={{position:'relative'}} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)} ref={this.wrapperDiv}>
 
-      {children.map((child,i)=><div key={i}>{child}</div>)}
+      {children.map((child,i)=>{
+        console.log(child.props.children[0])
+        return <div key={i} data-name={child.props.children[0]}>{child}</div>
+      })}
 
     </div>;
   }

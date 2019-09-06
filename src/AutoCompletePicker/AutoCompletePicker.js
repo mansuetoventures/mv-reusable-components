@@ -1,53 +1,49 @@
-import React, {Component} from 'react';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import css from './AutoCompletePicker.scss';
-import {reject, identity, pullAt, filter} from 'lodash';
+import React, {Component, useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {reject} from 'lodash';
 import PropTypes from 'prop-types';
 import loadScript from 'load-script';
-import Draggable from 'components/common/Draggable/Draggable.js';
 
-import DraggableList from './DraggableList/DraggableList.js';
-import Item from './Item/Item.js';
 
-import MenuBar from './MenuBar/MenuBar.js';
-import AutoComplete from './AutoComplete/AutoComplete.js';
 
 /*import {SortableContainer, SortableElement} from 'react-sortable-hoc';*/
 
-import {Optional, OneOf} from '../Optional/Optional.js';
+
+import { faTimes } from '@fortawesome/fontawesome-free-solid';
+
+import styled from 'styled-components';
+
+import MainMenu from './MainMenu/MainMenu.js';
+
+import DoubleView from './DoubleView/DoubleView.js';
+
+import LoadingAndPlus from './LoadingAndPlus/LoadingAndPlus.js';
+
+const AutoCompletePickerWrapper=styled.div`
+  box-shadow:1px 2px 5px 0px #333;
+
+  padding:0 10px;
+  box-sizing:border-box;
+  position:relative;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */`;
 
 
-const Plus = props=><FontAwesomeIcon icon={['fas', 'plus']}  onClick={props.action} className={css.plus}/>;
-Plus.propTypes = {
-  action: PropTypes.func
-};
-const X = props=><FontAwesomeIcon icon={['fas', 'times']}  onClick={props.action} className={css.ex} />;
-X.propTypes = {
-  action: PropTypes.func
-};
-
-const Loading = props=><FontAwesomeIcon icon={['fas', 'spinner']}  onClick={props.action} className={css.loading}/>;
-Loading.propTypes = {
-  action: PropTypes.func
-};
 
 
-class Minus extends React.Component{
-  handleMouseDown(e){
-    this.startY = e.clientY;
-  }
-  handleMouseUp(e){
-    this.endY = e.clientY;
-    if (this.startY == this.endY) this.props.action();
-  }
-  render(){
-    return <FontAwesomeIcon icon={['fas','minus-square']} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}/>;
-  }
-}
 
-Minus.propTypes = {
-  action: PropTypes.func
-};
+
+
+    
+
+
+
 
 
 
@@ -73,9 +69,11 @@ class AutoCompletePicker extends Component{
 
   componentDidMount(){
     this.loadDataIfNecessary().then(data=>{
+      console.log("ldif",data)
       const selected = this.props.selected.map(selected=>{
         return data.filter(datum=>datum[this.props.nameValue]==(typeof selected == 'string'?selected:selected[this.props.nameValue]))[0]
       });
+      console.log("ldif",data,selected);
       this.setState({
         data:data,
         selected:selected
@@ -207,13 +205,6 @@ class AutoCompletePicker extends Component{
 
   updateAutoComplete(){
   }
-  handleChoose(obj){
-    this.setState({
-      selected:[...this.state.selected,obj],
-      showInput:false
-    });
-
-  }
   handleClickMinus(obj){
     /*
     window._filter = filter;
@@ -232,70 +223,44 @@ class AutoCompletePicker extends Component{
 
   handleType(){}
 
-  handleItemMinus(i){
-    let copy = [...this.state.selected];
-    this.setState({
-      selected:pullAt(copy,i) && copy
-    });
-  }
-  handleApply(){
-    this.props.onApply & this.props.onApply(this.state.selected);
-    this.setState({isOpen:false});
-  }
-  handleOnSwitch(draggingIndex,switchWith){
-    let selected = this.state.selected;
 
-    function array_move(arr, old_index, new_index) {
-      if (new_index >= arr.length) {
-        var k = new_index - arr.length + 1;
-        while (k--) {
-          arr.push(undefined);
-        }
-      }
-      arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-      return arr; // for testing
-    }
-
-    array_move(this.state.selected,draggingIndex,switchWith);
-
-    this.props.onSwitch && this.props.onSwitch(this.state.selected)
-
-  }
   render(){
-    return <div className={`${css.autoCompletePicker} ${this.state.isOpen?'':css.closed} ${this.state.showInput?css.input:css.apply}`}>
-      <OneOf whichOne={this.state.isOpen}>
-        <div className={`${css.row}`}>
-          <OneOf whichOne={this.state.isLoading}>
-            <Plus action={()=>this.setState({isOpen:true})} />
-            <Loading />
-          </OneOf>
-        </div>
-        <React.Fragment>
-          <DraggableList onSwitch={this.handleOnSwitch.bind(this)}>
-            {this.state.selected.map((obj,i)=>{
-              return <div key={i} className={`${css.row}`} ref={div=>this.wrapperDiv=div}>
-                {obj[this.props.nameValue]}
-                <Minus action={this.handleItemMinus.bind(this,i)}/>
-              </div>
-            }
-            )}
 
-          </DraggableList>
-          <MenuBar>
-            <Plus action={()=>this.setState({showInput:true})} />
-            <OneOf whichOne={this.state.showInput}>
-              <div className={css.apply} onClick={this.handleApply.bind(this)}>APPLY</div>
-              <AutoComplete data={this.state.data} nameField={this.props.nameValue} onChoose={this.handleChoose.bind(this)}>{this.props.placeholder}</AutoComplete>
-            </OneOf>
-            <X action={()=>{if (this.state.showInput) this.setState({showInput:false}); else this.setState({isOpen:false});}} />
-          </MenuBar>
-        </React.Fragment>
-      </OneOf>
-    </div>;
+    let additionalStyles = {};
+
+    if (!this.state.isOpen) additionalStyles = {...additionalStyles,
+      width: '20px',
+      height: '20px',
+      padding: '2px 3px',
+      borderRadius:'15px',
+      display: 'flex',
+      justifyContent: 'center'
+    };
+
+      if (!this.state.showInput) additionalStyles = {...additionalStyles,
+        //width: '100px',
+        //height: '26px',
+        margin: '2px 0',
+        fontSize: '14px',
+        lineHeight: '16px',
+        
+      }
+      else additionalStyles = {}
+
+    return <AutoCompletePickerWrapper style={additionalStyles}>
+      <DoubleView 
+        view1={<LoadingAndPlus isLoading={this.state.isLoading} onPlus={()=>this.setState({isOpen:true})}/>}
+        view2={<MainMenu onEx={()=>this.setState({isOpen:false})} onApply={()=>{this.setState({isOpen:false})}}/>}
+        onEx={()=>this.setState({isOpen:false})}
+        viewIndex={+ this.state.isOpen} //fancy syntax using "+": https://stackoverflow.com/questions/7820683/convert-boolean-result-into-number-integer 
+      />
+     
+      </AutoCompletePickerWrapper>;
   }
 }
 AutoCompletePicker.defaultProps = {
-  selected:[]
+  selected:[],
+  nameValue:'name'
 }
 AutoCompletePicker.propTypes = {
   placeholder: PropTypes.string,

@@ -30,13 +30,7 @@ const StyledDialog = withStyles(styles)(ClassesNesting);
 
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-      ref.current = value;
-    });
-    return ref.current;
-  }
+import usePrevious from '../usePrevious/usePrevious.js';
 
 function DialogBasedOnDialogMessage(props){
     const [message, setMessage] = useState(null);
