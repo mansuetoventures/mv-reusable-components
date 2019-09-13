@@ -299,26 +299,6 @@ const DraggableList = props=>{
 
 }
 
-
-DraggableList.defaultProps = {
-  children:[],
-  onChange:()=>{console.log("Changed!!!")}
-}
-
-DraggableList.propTypes = {
-  children: PropTypes.array,
-  onChange: PropTypes.func
-}
-
-
-
-
-
-
-
-
-
-
 DraggableList.defaultProps = {
   children:[],
   onChange:()=>{console.log("Changed!!!")}
