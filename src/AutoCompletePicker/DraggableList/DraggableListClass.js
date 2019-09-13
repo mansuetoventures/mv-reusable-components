@@ -261,10 +261,11 @@ class DraggableListClass extends React.Component{
 
     }
     render(){
-      if (typeof this.state.itemHistory[this.state.historyIndex]==='undefined') debugger;
+      const items = this.state.itemHistory[this.state.historyIndex];
+      console.log(items.join(' '));
       return <div><DraggableListWrapperDiv ref={this.wrapperDivRef}>
   
-        {this.state.itemHistory[this.state.historyIndex].map((item,i)=>{
+        {items.map((item,i)=>{
           return <div key={i} data-name={item}>
             <div className='draggableArea' style={{display:'inline-block',width:'100px'}}>{item}</div>
             <FontAwesomeIcon className='minus' icon={faMinusSquare} />
