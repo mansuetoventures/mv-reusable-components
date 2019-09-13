@@ -112,4 +112,4 @@ FeatureImagePicker.propTypes = {
   onClickImage: PropTypes.func
 }
 
-module.exports = FeatureImagePicker;
+export default FeatureImagePicker;
