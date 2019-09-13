@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React, { Component, useState } from 'react';
 
-import DraggableList from './DraggableList.js';
+import DraggableList from './DraggableListClass.js';
 
 let currentList = 0;
 const arrays = [
@@ -16,9 +16,9 @@ function App(){
     const [list, setList] = useState(arrays[currentList]);
     const [outputtedList, setOutputtedList] = useState(arrays[currentList])
     return <div><div>Hello</div>
-    <DraggableList list={list} debug={true} onChange={(list)=>{
+    <DraggableList list={list} debug={()=>{}} onChange={(list)=>{
         setOutputtedList(list);
-    }}/>
+    }} />
     <button onClick={()=>{
         currentList++;
         setList(arrays[currentList % arrays.length]);
