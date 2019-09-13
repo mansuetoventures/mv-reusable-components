@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import css from './AutoCompleteOption.scss'
 import resultsCSS from '../AutoCompleteResults/AutoCompleteResults.scss';
-console.log(resultsCSS);
 class AutoCompleteOption extends Component{
   constructor(){
     super();

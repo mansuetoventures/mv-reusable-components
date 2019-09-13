@@ -17,7 +17,9 @@ module.exports = {
       'FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/demo.js',
       'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js',
       'AsyncSwitch':'./src/AsyncSwitch/demo.js',
-      'AutoCompletePicker':'./src/AutoCompletePicker/demo.js'
+      'AutoCompletePicker':'./src/AutoCompletePicker/demo.js',
+      'DraggableList':'./src/AutoCompletePicker/DraggableList/demo.js'
+
     },
     output:{
         path: path.resolve(__dirname, 'build'),

@@ -13,22 +13,7 @@ import X from '../X/X.js';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { pullAt} from 'lodash';
 window.pullAt = pullAt;
-class Minus extends React.Component{
-    handleMouseDown(e){
-      this.startY = e.clientY;
-    }
-    handleMouseUp(e){
-      this.endY = e.clientY;
-      if (this.startY == this.endY) this.props.action();
-    }
-    render(){
-      return <FontAwesomeIcon icon={['fas','minus-square']} onMouseDown={this.handleMouseDown.bind(this)} onMouseUp={this.handleMouseUp.bind(this)}/>;
-    }
-  }
-  
-  Minus.propTypes = {
-    action: PropTypes.func
-  };
+
 
   
 const Styles = styled.div`
@@ -42,11 +27,7 @@ display:flex;
     padding:3px;
     `
 
-const ACPRow = styled.div`
-display: flex;
-justify-content: space-between;
-align-items:center;
-`;//copy pasted, not dry
+
 
 const MainMenu = props=>{
     const [selected,setSelected] = useState(props.data || []);
@@ -97,16 +78,7 @@ const MainMenu = props=>{
     console.log('Render selected',selected.map(e=>e.name).join(' '));
   
     return <Styles>
-    <DraggableList onSwitch={handleOnSwitch}>
-      {selected.map((obj,i)=>{
-        return <ACPRow key={i} ref={wrapperDiv}>
-          {obj[props.nameValue]}
-          <Minus action={()=>handleItemMinus(i)}/>
-        </ACPRow>
-      }
-      )}
-  
-    </DraggableList>
+    <DraggableList onSwitch={handleOnSwitch} list={selected.map((obj)=>obj[props.nameValue])} />  
     <MenuBar>
       <Plus action={()=>setShowInput(true)} />
       <DoubleView
