@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React, { Component, useState } from 'react';
 
-import DraggableList from './DraggableListClass.js';
+import DraggableList from './DraggableList.js';
 
 let currentList = 0;
 const arrays = [

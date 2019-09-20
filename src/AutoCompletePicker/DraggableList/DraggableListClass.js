@@ -17,6 +17,8 @@ function getLocalMouseY(containerElement,globalMouseY){
 class DraggableListClass extends React.Component{
     constructor(props){
         super(props);
+        console.log('c')
+
         //Declare Initial State
         //Keep track of the current list items in a history array
         this.state = {
@@ -42,8 +44,10 @@ class DraggableListClass extends React.Component{
   
     }
     handleMouseDown(){
-      console.log("MOUSE DOWN CALLED!!!!!!",this);
+      console.log('hmd')
       const handleMouseMove = function(event){
+        console.log('hmm')
+
         //on click item, replace it with a placeholder, then make the child absolutely positioned. (not sure if this comment is still relevant)
     
     
@@ -73,9 +77,10 @@ class DraggableListClass extends React.Component{
           }
         });
       }
+      const handleMouseMoveBound = handleMouseMove.bind(this);
   
       const handleMouseUp = function(e){
-      
+      console.log('hmu')
         //if it's above it's actually the first one that changed. If below it's the last.
         const indexToSwitchWith = this.listElements.reduce((accumulator,element,index)=>{
           //console.log(this.listElementYValues[index] , this.draggingInitialY);
@@ -101,7 +106,7 @@ class DraggableListClass extends React.Component{
       
         },null);
   
-      
+        console.log('Removing position styles from children');
         this.wrapperDivRef.current.style.height='';
         this.listElements.forEach((child,i)=>{
           child.style.position='';
@@ -133,17 +138,19 @@ class DraggableListClass extends React.Component{
             this.props.onChange(mostRecentHistoryItem);
           }
         }
+
   
       
-        this.wrapperDivRef.current.removeEventListener('mousemove',handleMouseMove.bind(this));
-        this.wrapperDivRef.current.removeEventListener('mouseup',handleMouseUp.bind(this));
+        this.wrapperDivRef.current.removeEventListener('mousemove',handleMouseMoveBound);
+        this.wrapperDivRef.current.removeEventListener('mouseup',handleMouseUpBound);
   
         //this.useEffect();
         //this.setState({placeholderIndex:null});
         //debugger;
         //assignListRefs();
       }
-    
+      const handleMouseUpBound = handleMouseUp.bind(this)
+
   
       //on click item, replace it with a placeholder, then make the child absolutely positioned.
       
@@ -179,12 +186,13 @@ class DraggableListClass extends React.Component{
       this.draggingInitialY = this.listElementYValues[currentIndex];
   
       
-      this.wrapperDivRef.current.addEventListener('mousemove',handleMouseMove.bind(this));
-      this.wrapperDivRef.current.addEventListener('mouseup',handleMouseUp.bind(this));
+      this.wrapperDivRef.current.addEventListener('mousemove',handleMouseMoveBound);
+      this.wrapperDivRef.current.addEventListener('mouseup',handleMouseUpBound);
   
     }
 
     componentDidMount(){
+      console.log('cdm')
 
         //Class: repeated code
 
@@ -229,6 +237,8 @@ class DraggableListClass extends React.Component{
     }
 
     componentDidUpdate(prevProps,prevState){
+      //debugger;
+      console.log('cdu');
 
     //If new items are passed into the component, update the history and fire onChange.
     if (this.props.list.join('|||') !== prevProps.list.join('|||')){
@@ -261,7 +271,7 @@ class DraggableListClass extends React.Component{
 
     }
     render(){
-      const items = this.state.itemHistory[this.state.historyIndex];
+      const items = [...this.state.itemHistory[this.state.historyIndex]];
       console.log(items.join(' '));
       return <div><DraggableListWrapperDiv ref={this.wrapperDivRef}>
   

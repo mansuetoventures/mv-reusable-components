@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Item from '../Item/Item.js';
 
 import css from '../AutoCompletePicker.scss';
-import {toArray, last} from 'lodash';
+import {toArray, last, without} from 'lodash';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faMinus, faMinusSquare, faMinusCircle } from '@fortawesome/fontawesome-free-solid';
 
@@ -54,7 +54,6 @@ const DraggableList = props=>{
   //If new items are passed into the component, update the history and fire onChange.
   const prevListProp = usePrevious(props.list.join('|||'));
   useEffect(()=>{
-    debugger;
     //Hooks note: This code needs to be in useEffect in order to have acceess to usePrevious variable (perhaps react hooks are a bit weird)
     if (prevListProp && prevListProp!==props.list.join('|||')) {
 
@@ -83,7 +82,6 @@ const DraggableList = props=>{
 
   //handlers for dragging and deleting items.
   const handleMouseDown = function(event){
-    console.log("MOUSE DOWN CALLED!!!!!!")
     const handleMouseMove = function(event){
       //on click item, replace it with a placeholder, then make the child absolutely positioned. (not sure if this comment is still relevant)
   
@@ -233,7 +231,7 @@ const DraggableList = props=>{
 
 
   //after render and updating the list based on props, recalculate the values needed for dragging calculation.
-  useLayoutEffect(()=>{
+  useEffect(()=>{
     
 
     //This needs to be called initially and whenever the list fundamentally changes.
@@ -249,29 +247,36 @@ const DraggableList = props=>{
     },[]);
 
     setHistoryIndex(itemHistory.length-1);
-    debugger;
-  },[itemHistory.length]); //convert props.children to a string somehow with map or something.
+  }); //convert props.children to a string somehow with map or something.
 
   //lastly add event listeners for dragging and deleting
-  useLayoutEffect(()=>{
+  useEffect(()=>{
     wrapperDivRef.current.addEventListener('mousedown',handleMouseDown);
     if (typeof window.arr=='undefined') window.arr = [];
-    //after dragging this becomes a bug
-    [...wrapperDivRef.current.querySelectorAll('.minus')].forEach((e,i)=>{
+    //I don't know why I can drag with vanilla JS but I can't remove. Moved this functionality to a react event.
+    /*[...wrapperDivRef.current.querySelectorAll('.minus')].forEach((e,i)=>{
       e.addEventListener('mousedown',e=>{
         e.stopPropagation();
         const svg = e.target.tagName == 'path'? e.target.parentNode: e.target;
         svg.parentNode.parentNode.removeChild(svg.parentNode);
+      
         const mostRecentHistoryItem = [...wrapperDivRef.current.children].map(c=>c.children[0].innerHTML);
         //setItemHistory([...itemHistory,mostRecentHistoryItem]); This doesn't work...why?
         //setItemHistory([...getItemHistory(),mostRecentHistoryItem]); //This worked
-        setItemHistory(oldItemHistory=>[...oldItemHistory,mostRecentHistoryItem]); //This works https://stackoverflow.com/questions/54676966/push-method-in-react-hooks-usestate
+        try{
+          debugger;
+          setItemHistory(oldItemHistory=>[...oldItemHistory,mostRecentHistoryItem]); //This works https://stackoverflow.com/questions/54676966/push-method-in-react-hooks-usestate
+          //setItemHistory([]);
+        }
+        catch(e){
+          debugger;
+        }
         setHistoryIndex(oldHistoryIndex=>{
           return oldHistoryIndex+1
         });
         props.onChange(mostRecentHistoryItem);
       })
-    })
+    })*/
   },[])
 
   const debug=()=>{
@@ -279,16 +284,20 @@ const DraggableList = props=>{
   }
 
   const arr = itemHistory[historyIndex];
-  console.log('RENDERING',arr,historyIndex);
 
-  debugger;
   return <div><DraggableListWrapperDiv ref={wrapperDivRef}>
 
       {arr.map((item,i)=>{
-        debugger;
-        return <div key={i} data-name={item}>
+        return <div key={`${item} ${i}`}>
           <div className='draggableArea' style={{display:'inline-block',width:'100px'}}>{item}</div>
-          <FontAwesomeIcon className='minus' icon={faMinusSquare} />
+          <FontAwesomeIcon className='minus' icon={faMinusSquare} onClick={(e)=>{
+              //Note: this removes duplicates which we don't actually want.
+              const nextItem = without(last(itemHistory),item);
+              setItemHistory([...itemHistory,nextItem]) 
+              setHistoryIndex(historyIndex+1);
+              props.onChange(nextItem);
+
+          }}/>
           {/*<div className='minus' style={{display:'inline-block',marginLeft:'30px',background:'green'}}>-</div>*/}
         </div>
       })}

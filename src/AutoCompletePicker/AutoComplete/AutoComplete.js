@@ -61,7 +61,7 @@ class AutoComplete extends React.Component{
   }
   handleBlur(){}
   handleChoose(obj){
-    this.props.onChoose(obj);
+    this.setState({searchQuery:''},this.props.onChoose.bind(null,obj));
   }
   render(){
     let results = [];
@@ -78,7 +78,7 @@ class AutoComplete extends React.Component{
     if (this.state.isError) style.outline='3px solid red';
     style.display='inline-block';
     return <div style={style}>
-      <input placeholder={this.props.children} onChange={this.handleType.bind(this)} onFocus={this.handleFocus.bind(this)} onBlur={this.handleBlur.bind(this)} />
+      <input value={this.state.searchQuery} placeholder={this.props.children} onChange={this.handleType.bind(this)} onFocus={this.handleFocus.bind(this)} onBlur={this.handleBlur.bind(this)} />
       {!!results.length &&
         <AutoCompleteResults>
           {results.map((result,i)=>{
@@ -105,7 +105,8 @@ AutoComplete.defaultProps = {
     // eslint-disable-next-line no-console
     console.log("You have chosen:",obj, "Please pass an onChoose prop to this component.");
   },
-  nameField:'name'
+  nameField:'name',
+  allowMultiple:false//true not completely supported at this time
 }
 
 export default AutoComplete;

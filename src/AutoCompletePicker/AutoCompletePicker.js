@@ -250,7 +250,14 @@ class AutoCompletePicker extends Component{
     return <AutoCompletePickerWrapper style={additionalStyles}>
       <DoubleView 
         view1={<LoadingAndPlus isLoading={this.state.isLoading} onPlus={()=>this.setState({isOpen:true})}/>}
-        view2={<MainMenu onEx={()=>this.setState({isOpen:false})} onApply={()=>{this.setState({isOpen:false})}}/>}
+        view2={<MainMenu 
+          onEx={()=>this.setState({isOpen:false})} 
+          onApply={()=>{this.setState({isOpen:false})}} 
+          customFilteredDataFunction={(query)=>{
+            return Promise.resolve(this.props.dataSource.filter(f=>f.name.indexOf(query) > -1));
+          }}
+        />
+        }
         onEx={()=>this.setState({isOpen:false})}
         viewIndex={+ this.state.isOpen} //fancy syntax using "+": https://stackoverflow.com/questions/7820683/convert-boolean-result-into-number-integer 
       />
@@ -266,7 +273,8 @@ AutoCompletePicker.propTypes = {
   placeholder: PropTypes.string,
   nameValue: PropTypes.string,
   selected: PropTypes.array,
-  data: PropTypes.object,
+  //data: PropTypes.object,
+  data: PropTypes.array,
   onApply: PropTypes.func,
   onSwitch: PropTypes.func
 };

@@ -38,17 +38,17 @@ const MainMenu = props=>{
 
   function handleItemMinus(i){
     console.log(`index ${i}`);
-    const old = selected.map(e=>e.name).join(' ');
-    pullAt(selected,i); //returns pulled item
-    const _new = selected.map(e=>e.name).join(' ');
-    setSelected([...selected]);
-    console.log(old);
-    console.log(_new);
+    const list = [...selected];
+    pullAt(list,i); //returns pulled item
+    setSelected(list);
+    props.onChange(list);
   }
   
   function handleChoose(obj){
-    setSelected([...selected,obj]);
+    const list = [...selected,obj];
+    setSelected(list);
     setShowInput(false);
+    props.onChange(list);
   }
 
     function handleOnSwitch(draggingIndex,switchWith){
@@ -67,6 +67,8 @@ const MainMenu = props=>{
       array_move(selected,draggingIndex,switchWith);
   
       props.onSwitch && props.onSwitch(selected)
+      props.onChange(selected);
+
   
     }
   
@@ -78,7 +80,7 @@ const MainMenu = props=>{
     console.log('Render selected',selected.map(e=>e.name).join(' '));
   
     return <Styles>
-    <DraggableList onSwitch={handleOnSwitch} list={selected.map((obj)=>obj[props.nameValue])} />  
+    <DraggableList onSwitch={handleOnSwitch} list={selected.map((obj)=>obj[props.nameValue])} onChange={list=>props.onChange(list)}/>  
     <MenuBar>
       <Plus action={()=>setShowInput(true)} />
       <DoubleView

@@ -18,7 +18,9 @@ module.exports = {
       'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js',
       'AsyncSwitch':'./src/AsyncSwitch/demo.js',
       'AutoCompletePicker':'./src/AutoCompletePicker/demo.js',
-      'DraggableList':'./src/AutoCompletePicker/DraggableList/demo.js'
+      'DraggableList':'./src/AutoCompletePicker/DraggableList/demo.js',
+      'AutoComplete':'./src/AutoCompletePicker/AutoComplete/demo.js',
+      'MainMenu':'./src/AutoCompletePicker/MainMenu/demo.js'
 
     },
     output:{
