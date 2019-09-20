@@ -5,7 +5,7 @@ import useCKEditor from '../hooks/useCKEditor.js';
 import usePrevious from '../usePrevious/usePrevious.js';
 import useEditable from '../useEditable/useEditable.js';
 
-function ArticleTitle(props){
+function EditableTitle(props){
     const IncCKEditorFeatures = useCKEditor('title');
     const h1El = useRef(null);
     const editable = props.editable;
@@ -49,13 +49,13 @@ function ArticleTitle(props){
     
     return <h1 ref={h1El}>{props.children}</h1>
 }
-ArticleTitle.defaultProps={
+EditableTitle.defaultProps={
  
 }
 
-ArticleTitle.propTypes = {
+EditableTitle.propTypes = {
   
 };
 
 
-export default ArticleTitle;
+export default EditableTitle;

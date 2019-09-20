@@ -5,7 +5,7 @@ import styles from './Article.scss';
 import DialogBasedOnDialogMessage from '../DialogBasedOnDialogMessage/DialogBasedOnDialogMessage.js';
 import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeaderFrames/MultipleArticleHeaderFrames.js';
 
-import ArticleTitle from '../ArticleTitle/ArticleTitle.js';
+import EditableTitle from '../EditableTitle/EditableTitle.js/index.js';
 import ArticleDeck from '../ArticleDeck/ArticleDeck.js';
 import ArticleBody from '../ArticleBody/ArticleBody.js';
 import AsyncSwitch from '../AsyncSwitch/AsyncSwitch.js';
@@ -63,7 +63,7 @@ function Article(props){
             topRegion={<AsyncSwitch label='Edit Mode' onSwitchedOn={()=>setEditMode(true)} onSwitchedOff={()=>setEditMode(false)}/>}
             shareButtons={<ShareButtons />}
             brow={<div>Brow</div>}
-            h1={<ArticleTitle editable={editMode}>{props.title}</ArticleTitle>}
+            h1={<EditableTitle editable={editMode}>{props.title}</EditableTitle>}
             h2={<ArticleDeck editable={editMode}>{props.deck}</ArticleDeck>}
             featureItem={<div>Feature Item</div>}
             authors={<div>Authors</div>}
