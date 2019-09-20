@@ -42,19 +42,19 @@ function EditableTitle(props){
         ]
       },
       //removePlugins: ['Toolbar']
-    });
+    },()=>{},()=>{},props.onChange);
 
 
 
     
-    return <h1 ref={h1El}>{props.children}</h1>
+    return <h1 className = {props.className} style = {props.style} ref={h1El}>{props.children}</h1>
 }
 EditableTitle.defaultProps={
- 
+  
 }
 
 EditableTitle.propTypes = {
-  
+  //style class onchange
 };
 
 
