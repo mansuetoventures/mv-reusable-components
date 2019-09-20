@@ -8,7 +8,7 @@ function ArticleDeck(props){
     const h2El = useRef(null);
     const editable = props.editable;
 
-    useEditable(editable,h2El.current,{
+    useEditable(editable,h2El.current,IncCKEditorFeatures?{
       plugins: [
         //Essentials, // enables clipboard, Enter, ShiftEnter, typing and undo support.
         'Clipboard',
@@ -41,7 +41,7 @@ function ArticleDeck(props){
         ]
       },
       toolbar:['italic']
-    },undefined,undefined,props.onChange);
+    }:undefined,undefined,undefined,props.onChange);
 
     return <h2 ref={h2El} style={props.style} className={props.className}>{props.children}</h2>
 }
