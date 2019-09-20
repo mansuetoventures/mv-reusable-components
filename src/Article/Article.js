@@ -5,8 +5,8 @@ import styles from './Article.scss';
 import DialogBasedOnDialogMessage from '../DialogBasedOnDialogMessage/DialogBasedOnDialogMessage.js';
 import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeaderFrames/MultipleArticleHeaderFrames.js';
 
-import EditableTitle from '../EditableTitle/index.js';
-import ArticleDeck from '../ArticleDeck/ArticleDeck.js';
+import EditableTitle from '../EditableTitle/EditableTitle.js';
+import ArticleDeck from '../EditableDeck/EditableDeck.js';
 import ArticleBody from '../ArticleBody/ArticleBody.js';
 import AsyncSwitch from '../AsyncSwitch/AsyncSwitch.js';
 import ShareButtons from '../ShareButtons/ShareButtons.js';
