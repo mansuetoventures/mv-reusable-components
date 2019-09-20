@@ -1,6 +1,6 @@
 {
   "name": "mv-reusable-components",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Put a description here",
   "main": "build/index.js",
   "peerDependencies": {
