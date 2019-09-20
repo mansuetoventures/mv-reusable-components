@@ -7,10 +7,7 @@ import {Optional, OneOf} from '../Optional/Optional.js';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { type } from 'os';
 
-const X = props=><FontAwesomeIcon icon={['fas', 'times']}  onClick={props.onClick} />;
-X.propTypes = {
-  onClick: PropTypes.func
-};
+import X from '../AutoCompletePicker/X/X.js';
 
 class ViewPicker extends React.Component{
   constructor(){

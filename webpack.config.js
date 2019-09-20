@@ -16,6 +16,7 @@ module.exports = {
     'InfiniteScroll/InfiniteScroll':'./src/InfiniteScroll/InfiniteScroll.js',
     'Article/Article':'./src/Article/Article.js',
     'BootstrapFrames/FeatureItemArea/FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/FeatureItemArea.js',
+    'AsyncSwitch/AsyncSwitch':'./src/AsyncSwitch/AsyncSwitch.js'
 
 
   },

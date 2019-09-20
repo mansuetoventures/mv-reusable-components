@@ -5,7 +5,7 @@ import css from '../AutoCompletePicker.scss';
 
 const MenuBar = props=>{
   let children = props.children.filter(identity);
-  return <div className={`${css.row}`}>
+  return <div style={css.autoCompletePicker__row}>
     {children[0]}
     {children[1]}
     {children[2]}

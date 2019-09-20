@@ -15,7 +15,13 @@ module.exports = {
       'DialogBasedOnDialogMessage':'./src/DialogBasedOnDialogMessage/demo.js',
       'MultipleArticleHeaderFrames':'./src/BootstrapFrames/MultipleArticleHeaderFrames/demo.js',
       'FeatureItemArea':'./src/BootstrapFrames/FeatureItemArea/demo.js',
-      'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js'
+      'HeaderInfoSection':'./src/BootstrapFrames/HeaderInfoSection/demo.js',
+      'AsyncSwitch':'./src/AsyncSwitch/demo.js',
+      'AutoCompletePicker':'./src/AutoCompletePicker/demo.js',
+      'DraggableList':'./src/AutoCompletePicker/DraggableList/demo.js',
+      'AutoComplete':'./src/AutoCompletePicker/AutoComplete/demo.js',
+      'MainMenu':'./src/AutoCompletePicker/MainMenu/demo.js'
+
     },
     output:{
         path: path.resolve(__dirname, 'build'),
