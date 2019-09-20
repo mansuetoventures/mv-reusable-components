@@ -41,9 +41,9 @@ function ArticleDeck(props){
         ]
       },
       toolbar:['italic']
-    });
+    },undefined,undefined,props.onChange);
 
-    return <h2 ref={h2El}>{props.children}</h2>
+    return <h2 ref={h2El} style={props.style} className={props.className}>{props.children}</h2>
 }
 ArticleDeck.defaultProps={
  
