@@ -47,7 +47,9 @@ function CustomJS(){
     return "To do";
 }
 
+function emptyOnChange () {
 
+}
 
 function Article(props){
     const [dialogMessage, setDialogMessage] = useState(null);
@@ -63,7 +65,7 @@ function Article(props){
             topRegion={<AsyncSwitch label='Edit Mode' onSwitchedOn={()=>setEditMode(true)} onSwitchedOff={()=>setEditMode(false)}/>}
             shareButtons={<ShareButtons />}
             brow={<div>Brow</div>}
-            h1={<EditableTitle editable={editMode}>{props.title}</EditableTitle>}
+            h1={<EditableTitle style = {{display: "block"}} className = "class" onChange = {emptyOnChange} editable={editMode}>{props.title}</EditableTitle>}
             h2={<ArticleDeck editable={editMode}>{props.deck}</ArticleDeck>}
             featureItem={<div>Feature Item</div>}
             authors={<div>Authors</div>}
