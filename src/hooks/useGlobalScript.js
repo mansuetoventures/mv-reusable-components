@@ -13,7 +13,7 @@ const SCRIPT_ERROR = 2;
 export default function useGlobalScript(scriptName,windowVarName,calledFrom){
     //if (calledFrom=='deck') console.log('useGlobalScript called from deck')
     
-    if (typeof scripts == 'undefined') return undefined; //This hook should only run on browser, not server
+    if (typeof scripts_NOCONFLICT == 'undefined') return undefined; //This hook should only run on browser, not server
 
     const [scriptsState,setScriptsState] = useState(window.scripts_NOCONFLICT) //Keep a local copy of window.scripts_NOCONFLICT for updating purposes
     //if (calledFrom=='deck') console.log('scriptsState',scriptsState)
