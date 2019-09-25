@@ -7,7 +7,7 @@ import MultipleArticleHeaderFrames from '../BootstrapFrames/MultipleArticleHeade
 
 import EditableTitle from '../EditableTitle/EditableTitle.js';
 import ArticleDeck from '../EditableDeck/EditableDeck.js';
-import ArticleBody from '../ArticleBody/ArticleBody.js';
+import EditableBody from '../EditableBody/EditableBody.js';
 import AsyncSwitch from '../AsyncSwitch/AsyncSwitch.js';
 import ShareButtons from '../ShareButtons/ShareButtons.js';
 
@@ -76,7 +76,7 @@ function Article(props){
         />
         <RandomWaypoint />
         <BodyAndOtherBS 
-            articleBody={<ArticleBody editable={editMode}>Article Body component</ArticleBody>}
+            articleBody={<EditableBody editable={editMode}>Article Body component</EditableBody>}
         />
         <Sidebar />
         <PublishButton />
