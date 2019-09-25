@@ -14,7 +14,7 @@ function ArticleBody(props){
     
     const editable = props.editable;
 
-    useEditable(editable,divEl.current,{
+    useEditable(editable,divEl.current,IncCKEditorFeatures?{
       plugins: [
         'Clipboard',
         'Enter',
@@ -140,7 +140,7 @@ function ArticleBody(props){
           )
         });
       }}
-    });
+    }:undefined);
 
 
    
