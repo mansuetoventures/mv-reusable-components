@@ -19,6 +19,7 @@ module.exports = {
     'AsyncSwitch/AsyncSwitch':'./src/AsyncSwitch/AsyncSwitch.js',
     'EditableTitle/EditableTitle':'./src/EditableTitle/EditableTitle.js',
     'EditableDeck/EditableDeck':'./src/EditableDeck/EditableDeck.js',
+    'EditableBody/EditableBody':'./src/EditableBody/EditableBody.js',
 
   },
   output: {
