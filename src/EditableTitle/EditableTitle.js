@@ -10,7 +10,7 @@ function EditableTitle(props){
     const h1El = useRef(null);
     const editable = props.editable;
 
-    useEditable(editable,h1El.current,{
+    useEditable(editable,h1El.current,IncCKEditorFeatures?{
       plugins: [
         //Essentials, // enables clipboard, Enter, ShiftEnter, typing and undo support.
         'Clipboard',
@@ -42,7 +42,7 @@ function EditableTitle(props){
         ]
       },
       //removePlugins: ['Toolbar']
-    },()=>{},()=>{},props.onChange);
+    }:undefined,()=>{},()=>{},props.onChange);
 
 
 
