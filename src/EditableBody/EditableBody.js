@@ -140,7 +140,7 @@ function ArticleBody(props){
           )
         });
       }}
-    }:undefined);
+    }:undefined,()=>{},()=>{},props.onChange);
 
 
    
