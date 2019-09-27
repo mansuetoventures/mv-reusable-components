@@ -5,7 +5,7 @@ import useCKEditor from '../hooks/useCKEditor.js';
 import usePrevious from '../usePrevious/usePrevious.js';
 import useEditable from '../useEditable/useEditable.js';
 
-function EditableTitle(props){
+const EditableTitle = React.memo(props=>{
     const IncCKEditorFeatures = useCKEditor('title');
     const h1El = useRef(null);
     const editable = props.editable;
@@ -48,7 +48,9 @@ function EditableTitle(props){
 
     
     return <h1 className = {props.className} style = {props.style} ref={h1El}>{props.children}</h1>
-}
+},(prevProps,nextProps)=>{
+  if (prevProps.editable && nextProps.editable) return true;
+});
 EditableTitle.defaultProps={
   
 }

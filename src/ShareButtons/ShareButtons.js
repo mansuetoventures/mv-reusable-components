@@ -26,7 +26,6 @@ const AbstractShareButtons = props=>{
       let style;
       if (i===props.types.length-1) style={marginRight:'0'}
       else style = {};
-      console.log(style);
       return <ShareButton type={type} key={i} {...config} styleAttr={style}/>
     });
   }

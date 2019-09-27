@@ -4,8 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isDevelopment = false;
 
 module.exports = {
-  mode: 'production',
-  //mode: 'development',
+  //mode: 'production',
+  mode: 'development',
 
   entry: {
     'BootstrapFrames/Full/Full':'./src/BootstrapFrames/Full/Full.js',

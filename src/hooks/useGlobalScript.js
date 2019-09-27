@@ -20,9 +20,9 @@ export default function useGlobalScript(scriptName,windowVarName,calledFrom){
 
 
     function setStateAndGlobal(val){
-        scripts[scriptName]=val;
+        scripts_NOCONFLICT[scriptName]=val;
         setScriptsState({
-            ...scripts,
+            ...scripts_NOCONFLICT,
             [scriptName]:val
         });
     }
@@ -41,12 +41,12 @@ export default function useGlobalScript(scriptName,windowVarName,calledFrom){
         console.log("yes")
     }*/
 
-    if (typeof scripts[scriptName]=='undefined') {
+    if (typeof scripts_NOCONFLICT[scriptName]=='undefined') {
         //console.log('scripts',scripts);
         //setScript(SCRIPT_NOT_YET_CALLED);
         setStateAndGlobal(SCRIPT_NOT_YET_CALLED);
     }
-    else if (scripts[scriptName] == SCRIPT_NOT_YET_CALLED) {
+    else if (scripts_NOCONFLICT[scriptName] == SCRIPT_NOT_YET_CALLED) {
         //setScript(SCRIPT_CALLED);
         //if (calledFrom=='deck') console.log('SCRIPT_NOT_YET_CALLED',scriptsState)
 
@@ -67,5 +67,5 @@ export default function useGlobalScript(scriptName,windowVarName,calledFrom){
     }
 
    
-    return scripts[scriptName];
+    return scripts_NOCONFLICT[scriptName];
 }
