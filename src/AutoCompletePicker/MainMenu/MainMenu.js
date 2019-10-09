@@ -48,7 +48,7 @@ const MainMenu = props=>{
     const list = [...selected,obj];
     setSelected(list);
     setShowInput(false);
-    props.onChange(list);
+    typeof props.onChange=='function' && props.onChange(list);
   }
 
     function handleOnSwitch(draggingIndex,switchWith){

@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 
-import AutoCompletePicker from './AutoCompletePicker.js';
+import AutoCompletePicker from './AutoCompletePickerOld.js';
 import MainMenu from './MainMenu/MainMenu.js';
 import AutoComplete from './AutoComplete/AutoComplete.js'
 const dataSource = [{name:'Apple'},{name:'Orange'},{name:'Banana'}];
