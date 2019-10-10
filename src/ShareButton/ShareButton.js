@@ -48,17 +48,21 @@ const ShareButton = props=> {
       if (props.type === 'LinkedIn') {
           //icon = ['fab', props.style == 'default' ? 'linkedin-in' : 'linkedin'];
           icon = props.style == 'default'? faLinkedinIn : faLinkedin;
-          url = `http://www.linkedin.com/shareArticle?mini=true&url=https://www.inc.com/${props.url}&title=${props.headline}&summary=${props.summary}&source=Inc.com`;
+          //url = `http://www.linkedin.com/shareArticle?mini=true&url=https://www.inc.com/${props.url}&title=${props.headline}&summary=${props.summary}&source=Inc.com`;
+          url=`http://www.linkedin.com/shareArticle?mini=true&url=${props.url}&title=${props.headline}&summary=${props.summary}&source=${props.source}`;
       }
       else if (props.type === 'Facebook') {
           //icon = ['fab', this.state.style == 'default' ? 'facebook-f' : 'facebook'];
           icon = props.style == 'default'? faFacebookF : faFacebookSquare;
-          url = `https://www.facebook.com/sharer/sharer.php?u=https://www.inc.com/${encodeURI(props.url)}`;
+          //url = `https://www.facebook.com/sharer/sharer.php?u=https://www.inc.com/${encodeURI(props.url)}`;
+          url = `https://www.facebook.com/sharer/sharer.php?u=${props.url}`;
       }
       else if (props.type === 'Twitter') {
           //icon = ['fab', this.state.style == 'default' ? 'twitter' : 'twitter-square'];
           icon = props.style == 'default'? faTwitter : faTwitterSquare;
-          url = `https://twitter.com/intent/tweet?url=https://www.inc.com/${props.url}&text=${props.headline || 'Share on Twitter!'}&via=Inc`;
+          //url = `https://twitter.com/intent/tweet?url=https://www.inc.com/${props.url}&text=${props.headline || 'Share on Twitter!'}&via=Inc`;
+          url = `https://twitter.com/intent/tweet?url=${props.url}&text=${props.headline || 'Share on Twitter!'}&via=${props.via}`;
+
       }
       else if (props.type === 'Email'){
           icon = props.style == 'default'? faEnvelopeDefault : faEnvelopeSolid;
@@ -67,7 +71,7 @@ const ShareButton = props=> {
 
           
     return (
-        <ShareButtonWrapper style={props.styleAttr} onClick={handleShareButtonClick}>
+        <ShareButtonWrapper onClick={handleShareButtonClick}>
           <a style={{color:'#000'}} target="_blank" rel="noopener noreferrer noskim" className={`${props.faClasses} ShareButtonAnchor`} href={url}>
             <FontAwesomeIcon icon={icon} />
           </a>
@@ -78,7 +82,6 @@ const ShareButton = props=> {
 ShareButton.propTypes = {
     type: PropTypes.string.isRequired,
     style: PropTypes.string,
-    styleAttr: PropTypes.object,//from 
     headline: PropTypes.string,
     summary: PropTypes.string,
     faClasses: PropTypes.string

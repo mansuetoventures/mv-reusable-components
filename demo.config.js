@@ -22,7 +22,7 @@ module.exports = {
       'AutoComplete':'./src/AutoCompletePicker/AutoComplete/demo.js',
       'MainMenu':'./src/AutoCompletePicker/MainMenu/demo.js',
       'ShareButton':'./src/ShareButton/demo.js',
-      'ShareButtons':'./src/ShareButtons/demo.js',
+      'ShareButtons':'./src/ShareButton/ShareButtons/demo.js',
 
     },
     output:{

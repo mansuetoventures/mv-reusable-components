@@ -21,7 +21,7 @@ module.exports = {
     'EditableDeck/EditableDeck':'./src/EditableDeck/EditableDeck.js',
     'EditableBody/EditableBody':'./src/EditableBody/EditableBody.js',
     'ShareButton/ShareButton':'./src/ShareButton/ShareButton.js',
-    'ShareButtons/ShareButtons':'./src/ShareButtons/ShareButtons.js',
+    'ShareButtons/ShareButtons':'./src/ShareButton/ShareButtons/ShareButtons.js',
 
   },
   output: {

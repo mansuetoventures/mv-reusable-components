@@ -9,7 +9,7 @@ import EditableTitle from '../EditableTitle/EditableTitle.js';
 import ArticleDeck from '../EditableDeck/EditableDeck.js';
 import EditableBody from '../EditableBody/EditableBody.js';
 import AsyncSwitch from '../AsyncSwitch/AsyncSwitch.js';
-import ShareButtons from '../ShareButtons/ShareButtons.js';
+import ShareButtons from '../ShareButton/ShareButtons/ShareButtons.js';
 import useSavable from '../hooks/useSavable.js';
 
 
