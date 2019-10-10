@@ -2,8 +2,9 @@ import React, { Component,useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import isUndefined from 'lodash/isUndefined';
-import { faLinkedin,faLinkedinIn,faFacebook,faFacebookF,faTwitter,faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faLinkedin,faLinkedinIn,faFacebook,faFacebookF,faFacebookSquare,faTwitter,faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+import {faEnvelope as faEnvelopeDefault} from '@fortawesome/free-regular-svg-icons';
+import {faEnvelope as faEnvelopeSolid } from '@fortawesome/fontawesome-free-solid';
 
 import styled from 'styled-components';
 
@@ -12,10 +13,8 @@ const ShareButtonWrapper = styled.div`
   justify-content: space-between;
   width: 90px;
   margin-left: 20px;
-  font-size: 15px;
   vertical-align: -2px;
   //Also
-  font-size: 20px;
   width: auto;
   margin-left: initial;
   margin-right: 20px;
@@ -53,7 +52,7 @@ const ShareButton = props=> {
       }
       else if (props.type === 'Facebook') {
           //icon = ['fab', this.state.style == 'default' ? 'facebook-f' : 'facebook'];
-          icon = props.style == 'default'? faFacebookF : faFacebook;
+          icon = props.style == 'default'? faFacebookF : faFacebookSquare;
           url = `https://www.facebook.com/sharer/sharer.php?u=https://www.inc.com/${encodeURI(props.url)}`;
       }
       else if (props.type === 'Twitter') {
@@ -62,7 +61,7 @@ const ShareButton = props=> {
           url = `https://twitter.com/intent/tweet?url=https://www.inc.com/${props.url}&text=${props.headline || 'Share on Twitter!'}&via=Inc`;
       }
       else if (props.type === 'Email'){
-          icon = faEnvelope;
+          icon = props.style == 'default'? faEnvelopeDefault : faEnvelopeSolid;
           url = `mailto:nowhere@mozilla.org`;
       }
 
@@ -77,14 +76,19 @@ const ShareButton = props=> {
 }
 
 ShareButton.propTypes = {
-    type: PropTypes.string,
+    type: PropTypes.string.isRequired,
     style: PropTypes.string,
-    styleAttr: PropTypes.object,
-    url: PropTypes.string,
+    styleAttr: PropTypes.object,//from 
     headline: PropTypes.string,
     summary: PropTypes.string,
     faClasses: PropTypes.string
   };
-   export default ShareButton;
+
+const types = ['LinkedIn','Facebook','Twitter','Email'];
+const styles = ['default','square'];
+
+export {types as types, styles as styles}
+
+export default ShareButton;
 
 

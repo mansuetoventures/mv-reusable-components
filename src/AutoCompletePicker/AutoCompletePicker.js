@@ -170,7 +170,6 @@ function useFetchDataIfNeccessary(urlOrData){
 
 
 function AutoCompletePicker(props){
-    super();
     //const [isOpen, setIsOpen] = useState(false); handled internally
     //const [showInput, setShowInput] = useState(false); handled internally
     //const [selected,setSelected] = useState([]);

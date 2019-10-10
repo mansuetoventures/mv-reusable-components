@@ -20,7 +20,9 @@ module.exports = {
       'AutoCompletePicker':'./src/AutoCompletePicker/demo.js',
       'DraggableList':'./src/AutoCompletePicker/DraggableList/demo.js',
       'AutoComplete':'./src/AutoCompletePicker/AutoComplete/demo.js',
-      'MainMenu':'./src/AutoCompletePicker/MainMenu/demo.js'
+      'MainMenu':'./src/AutoCompletePicker/MainMenu/demo.js',
+      'ShareButton':'./src/ShareButton/demo.js',
+      'ShareButtons':'./src/ShareButtons/demo.js',
 
     },
     output:{

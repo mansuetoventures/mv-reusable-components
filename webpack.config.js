@@ -20,6 +20,8 @@ module.exports = {
     'EditableTitle/EditableTitle':'./src/EditableTitle/EditableTitle.js',
     'EditableDeck/EditableDeck':'./src/EditableDeck/EditableDeck.js',
     'EditableBody/EditableBody':'./src/EditableBody/EditableBody.js',
+    'ShareButton/ShareButton':'./src/ShareButton/ShareButton.js',
+    'ShareButtons/ShareButtons':'./src/ShareButtons/ShareButtons.js',
 
   },
   output: {
